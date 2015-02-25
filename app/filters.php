@@ -43,11 +43,17 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('login');
+			return Redirect::guest('admin/login')->with('error_message', 'Bạn phải đăng nhập để tiếp tục');
 		}
 	}
 });
 
+Route::filter('auth.admin', function()
+{
+    if(Auth::user()->user_type!="admin" or Auth::guest()){
+        return Redirect::to('admin/login')->with('error_message', 'Bạn không có quyền truy cập');
+    }
+});
 
 Route::filter('auth.basic', function()
 {

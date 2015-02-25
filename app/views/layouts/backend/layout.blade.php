@@ -52,7 +52,7 @@
                                     {{HTML::image('backend/template/AdminLTE/img/avatar3.png','',array("class"=>"img-circle"))}}
                                     <p>
                                         Developed by Ptheme.net
-                                        <small> since Nav. 2015</small>
+                                        <small> since Jan. 2015</small>
                                     </p>
                                 </li>
                                 <!-- Menu Body -->
@@ -70,10 +70,10 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="/admin/profile" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="/admin/logout" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>

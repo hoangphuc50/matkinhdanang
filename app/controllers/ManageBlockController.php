@@ -1,6 +1,6 @@
 <?php
 
-class ManageUserController extends \BaseController {
+class ManageBlockController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.

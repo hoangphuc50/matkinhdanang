@@ -14,6 +14,7 @@ class ProductTableSeeder extends Seeder {
 				Product::create(array(
 					'name' => $faker->name,
 					'description'=> $faker->text,
+					'content'=> $faker->text,
 					'state'=> 1,
 					'highlight'=> $faker->randomElement(array(1,0)),
 					'user_id'=> 1,
