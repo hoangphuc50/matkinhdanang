@@ -19,9 +19,9 @@
             <div class="col-xs-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title"><a href="/adminchuyenmuc/add" class="btn btn-success">Thêm mới</a></h3>
+                        <h3 class="box-title"><a href="{{URL::to('/admin/producers/add')}}" class="btn btn-success">Thêm mới</a></h3>
                         <div class="box-tools">
-                            <form action="/AdminChuyenMuc" method="get">
+                            <form action="/admin/producers" method="get">
                                 <div class="input-group">
 
                                     <input type="text" id="search" name="search" placeholder="Nhập tên tiếng việt và nhấn Enter" value="" class="form-control input-sm pull-right" style="width: 200px;">
@@ -39,9 +39,9 @@
                         <table class="table table-hover">
                             <tbody>
                                 <tr>
-                                    <th>ID
+                                    <th style="width:3%">{{adminSort("ID","id")}}
                                     </th>
-                                    <th>Tên nhà sản xuất
+                                    <th>{{adminSort("Tên nhà sản xuất","name")}}
                                     </th>
                                     <th style="width: 13%">Thao tác</th>
                                 </tr>
@@ -66,15 +66,7 @@
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer clearfix">
-                        <ul class="pagination pagination-sm no-margin pull-right">
-                            <li><a href="/adminchuyenmuc/index">«</a>
-                            </li>
-                            <li><a class="Selected" href="/AdminChuyenMuc/Index?page=1">1</a>
-                            </li>
-
-                            <li><a href="/adminchuyenmuc/index?page=1">»</a>
-                            </li>
-                        </ul>
+                       <?php echo $producers->appends(Input::only('search','option','per_page','sort','order'))->links(); ?>
                     </div>
                 </div>
                 <!-- /.box -->

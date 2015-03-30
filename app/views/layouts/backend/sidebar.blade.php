@@ -72,6 +72,13 @@
                 </a>
             </li>
             <li>
+                <a href="{{URL::to('/admin/producers')}}">
+                    <i class="fa fa-ambulance"></i>
+                    <span>Nhà sản xuất</span>
+                   
+                </a>
+            </li>
+            <li>
                 <a href="{{URL::to('/admin/blocks')}}">
                     <i class="fa fa-file-code-o"></i>
                     <span>Block HTML</span>

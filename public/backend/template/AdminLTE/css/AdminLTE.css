@@ -3196,3 +3196,7 @@ Component: timeline
     color: #587ea3;
     background-color: #ffffff;
 }
+.box .box-header .box-title a.btn.btn-success {
+    color:#fff;
+    margin-left:15px;
+}

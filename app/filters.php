@@ -50,7 +50,7 @@ Route::filter('auth', function()
 
 Route::filter('auth.admin', function()
 {
-    if(Auth::user()->user_type!="admin" or Auth::guest()){
+    if(Auth::user()->user_type != "admin" or Auth::guest()){
         return Redirect::to('admin/login')->with('error_message', 'Bạn không có quyền truy cập');
     }
 });
