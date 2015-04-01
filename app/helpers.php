@@ -37,15 +37,19 @@ function uploadPhoto($destinationPath, $input_name,$width=1600,$height=null) {
     $image_url = '';
     $file = Input::file($input_name);
     $extension = $file->getClientOriginalExtension();
-    $filename  = str_random(10) . '.' .$extension;
-    $uploadPath = public_path().'/'.$destinationPath;
+    $filename  = strtolower(str_random(10)) . '.' .$extension;
+    $uploadPath = public_path().'/'.$destinationPath.'/';
 
     $img = Image::make($file);
-    $img->resize($width, $height, function ($constraint) {
-        $constraint->aspectRatio();
-    });
+
+    $image_size = getimagesize($file);
+    if($image_size[0] > $width){
+        $img->resize($width, $height, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+    }
+
     $img->save($uploadPath.$filename);
-    
-    $image_url = $uploadPath.$filename;
+    $image_url = $destinationPath.'/'.$filename;
     return $image_url;
 }

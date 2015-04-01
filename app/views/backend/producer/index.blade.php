@@ -36,6 +36,30 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body table-responsive no-padding">
+                        @if ($errors->any())
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <h4><i class="icon fa fa-ban"></i> Lỗi!</h4>
+                                Kiểm tra lại dữ liệu nhập vào
+                            </div>
+                        @endif
+
+                        @if (Session::has('error_message'))
+                            <div class="alert alert-danger alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <h4><i class="icon fa fa-ban"></i> Lỗi!</h4>
+                                {{Session::get('error_message')}}
+                            </div>
+                        @endif
+
+                        @if (Session::has('success_message'))
+                            <div class="alert alert-success alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <h4>    <i class="icon fa fa-check"></i> Thành công!</h4>
+                            {{Session::get('success_message')}}
+                        </div>
+                        @endif
+                        
                         <table class="table table-hover">
                             <tbody>
                                 <tr>
@@ -43,7 +67,7 @@
                                     </th>
                                     <th>{{adminSort("Tên nhà sản xuất","name")}}
                                     </th>
-                                    <th style="width: 13%">Thao tác</th>
+                                    <th style="width: 130px">Thao tác</th>
                                 </tr>
                                 @foreach($producers as $producer)
                                 <tr>
@@ -51,7 +75,7 @@
                                        {{$producer->id}}
 
                                     </td>
-                                    <td><a href="">{{$producer->name}}</a>
+                                    <td><a href="/admin/producers/detail/{{$producer->id}}">{{$producer->name}}</a>
                                     </td>
                                     
                                     <td><a href="/admin/producers/edit/{{$producer->id}}" class="btn btn-primary">Sửa</a>
@@ -73,8 +97,6 @@
             </div>
         </div>
     </section>
-
-
     <!-- Main content -->
     <section class="content">
 
