@@ -14,7 +14,7 @@
         <li><a href="/admin"><i class="fa fa-dashboard"></i>Trang chính</a></li>
         <li class="active">Quản lí nhà sản xuất</li>
     </ol>
-    <section class="content">
+    <section class="content detail-content">
         <div class="row">
             <div class="box box-primary">
                 <div class="box-header">

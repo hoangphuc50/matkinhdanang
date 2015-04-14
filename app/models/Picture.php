@@ -1,6 +1,6 @@
 <?php
 
-class Image extends Eloquent {
+class Picture extends Eloquent {
 	protected $table = 'images';
 
 	public function blogs() {

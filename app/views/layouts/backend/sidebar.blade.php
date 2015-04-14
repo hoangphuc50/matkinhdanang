@@ -57,7 +57,7 @@
                 </a>
             </li>
             <li>
-                <a href="{{URL::to('/admin/members')}}">
+                <a href="{{URL::to('/admin/users')}}">
                     <i class="fa fa-cubes"></i>
                     <span>Người dùng</span>
                    

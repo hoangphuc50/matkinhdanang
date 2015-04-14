@@ -23,7 +23,7 @@ class CreateCategoriesTable extends Migration {
 			$table->string('link')->nullable();
 			$table->integer('order')->nullable();
 			$table->integer('parent_id')->nullable();
-			$table->date('image')->nullable();
+			$table->string('image')->nullable();
 			$table->string('category_type')->nullable();
 			$table->text('content')->nullable();
 			$table->timestamps();
