@@ -9,7 +9,8 @@ class UserTableSeeder extends Seeder {
 			'username' => 'admin',
 			'password' => Hash::make('123456'),
 			'email' => 'ptheme.net@gmail.com',
-			'name' => 'Administrator'
+			'name' => 'Administrator',
+			'user_type' => 'admin'
 			));
 	}
 }

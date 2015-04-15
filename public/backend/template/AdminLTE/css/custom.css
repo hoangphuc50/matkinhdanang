@@ -26,3 +26,6 @@
 	background: #eee;
 	padding: 15px;
 }
+.ms-container{
+	width: inherit;
+}

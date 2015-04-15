@@ -6,8 +6,8 @@
 
 
     <section class="content-header">
-    <h1>Quản lí chuyên mục, menu
-        @if(isset($category))
+    <h1>Quản lí bài viết
+        @if(isset($blog))
             <small>Chỉnh sửa thông tin</small>
         @else
             <small>Thêm mới</small>
@@ -15,7 +15,7 @@
     </h1>
     <ol class="breadcrumb">
         <li><a href="/admin"><i class="fa fa-dashboard"></i>Trang chính</a></li>
-        <li class="active">Quản lí chuyên mục</li>
+        <li class="active">Quản lí bài viết</li>
     </ol>
     <section class="content">
         <div class="row">
@@ -32,63 +32,52 @@
                 @endif
                 <!-- /.box-header -->
                 <!-- form start -->
-                @if(isset($category))
-                    {{ Form::model($category, array('url'=>'admin/categories/edit','method' => 'POST', 'class'=>'form-horizontal','files'=>true))}}
-                    {{Form::hidden('id', $category->id);}}
+                @if(isset($blog))
+                    {{ Form::model($blog, array('url'=>'admin/blogs/edit','method' => 'POST', 'class'=>'form-horizontal','files'=>true))}}
+                    {{Form::hidden('id', $blog->id);}}
                 @else
-                    {{Form::open(array('url' => URL::to('/admin/categories/add'),'method' => 'POST','files' => true))}}
+                    {{Form::open(array('url' => URL::to('/admin/blogs/add'),'method' => 'POST','files' => true))}}
                 @endif
                 
                 <div class="box-body">
-                    <div class="form-group {{{ $errors->has('name') ? 'has-error' : '' }}}">
+                    <div class="form-group {{{ $errors->has('title') ? 'has-error' : '' }}}">
                         <label>Tên chuyên mục</label>
-                        {{Form::text('name',isset($category) ? $category->name : '', array('class' => 'form-control','placeholder' => 'Tên nhà sản xuất'))}}
-                        {{ $errors->first('name', '<span class="help-block">:message</span>') }}
+                        {{Form::text('title',isset($blog) ? $blog->title : '', array('class' => 'form-control','placeholder' => 'Nhập tiêu đề cho bài viết'))}}
+                        {{ $errors->first('title', '<span class="help-block">:message</span>') }}
                     </div>
                     <div class="form-group {{{ $errors->has('image') ? 'has-error' : '' }}}">
                         <label>Hình đại diện</label>
-                        @if(empty($category->image))
+                        @if(empty($blog->image))
                             {{HTML::image('images/no_image.jpg','',array('class'=>'no-image'))}}
                         @else
-                            {{HTML::image($category->image,'')}}
+                            {{HTML::image($blog->image,'')}}
                         @endif
                         
                         {{ Form::file('image','',array('id'=>'','class'=>'')) }}
                         {{ $errors->first('image', '<span class="help-block">:message</span>') }}
                     </div>
-                    <div class="form-group {{{ $errors->has('short_description') ? 'has-error' : '' }}}">
-                        <label>Giới thiệu ngắn</label>
-                        {{Form::text('short_description',isset($category) ? $category->short_description : '', array('class' => 'form-control','placeholder' => 'Giới thiệu ngắn'))}}
-                        {{ $errors->first('short_description', '<span class="help-block">:message</span>') }}
-                    </div>
-                    <div class="form-group {{{ $errors->has('link') ? 'has-error' : '' }}}">
-                        <label>Link</label>
-                        {{Form::text('link',isset($category) ? $category->link : '', array('class' => 'form-control','placeholder' => 'Link khi click vô menu'))}}
-                        {{ $errors->first('link', '<span class="help-block">:message</span>') }}
-                    </div>
                     <div class="form-group {{{ $errors->has('description') ? 'has-error' : '' }}}">
                         <label>Giới thiệu</label>
-                        {{Form::textarea('description',isset($category) ? $category->description : '', array('class' => 'form-control','placeholder' => 'Giới thiệu'))}}
+                        {{Form::textarea('description',Input::old('description'), array('class' => 'form-control','placeholder' => 'Giới thiệu'))}}
                         {{ $errors->first('description', '<span class="help-block">:message</span>') }}
+                    </div>
+                    <div class="form-group {{{ $errors->has('category_id') ? 'has-error' : '' }}}">
+                        <label>Thuộc chuyên mục</label>
+                        <p class="help-block" style="text-align: center">Tất cả&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      >>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Được chọn</p>
+                            @if(isset($blog))
+                                {{Form::select('category_id[]', $categories, $selected_categories, array('multiple','class'=>'multi-select'))}}
+                            @else
+                                {{Form::select('category_id[]', $categories,null, array('multiple','class'=>'multi-select'))}}
+                            @endif
+                          {{ $errors->first('category_id', '<span class="help-block">Bài viết phải thuộc ít nhất 1 chuyên mục. Vui lòng chọn chuyên mục.</span>') }}  
+
                     </div>
 
                     <div class="form-group {{{ $errors->has('content') ? 'has-error' : '' }}}">
                         <label>Nội dung</label>
-                        {{Form::textarea('content',isset($category) ? $category->content : '', array('id'=>'editor', 'class' => 'form-control use_editor','placeholder' => 'Giới thiệu'))}}
+                        {{Form::textarea('content',isset($blog) ? $blog->content : Input::old('content'), array('id'=>'editor', 'class' => 'form-control use_editor','placeholder' => 'Nội dung'))}}
                         {{ $errors->first('content', '<span class="help-block">:message</span>') }}
                     </div>
-                    <div class="form-group {{{ $errors->has('order') ? 'has-error' : '' }}}">
-                        <label>Thứ tự sắp xếp (nếu có)</label>
-                        {{Form::text('order',isset($category) ? $category->order : '', array('class' => 'form-control','placeholder' => 'Thứ tự sắp xếp'))}}
-                        {{ $errors->first('order', '<span class="help-block">:message</span>') }}
-                    </div>
-
-                    <div class="form-group {{{ $errors->has('category_type') ? 'has-error' : '' }}}">
-                        <label>Loại chuyên mục</label>       
-                        {{ Form::select('category_type', array('' => 'Chọn loại danh mục', 'menu' => 'Menu', 'product' => 'Danh mục sản phẩm','blog' => 'Danh mục bài viết'), Input::old('category_type', isset($category) ? $category->category_type : ''), array('class' => 'form-control')) }}
-                        {{ $errors->first('category_type', '<span class="help-block">:message</span>') }}
-                    </div>
-
                     <div class="form-group">
                         <label>Hiển thị</label>
                         <br>
@@ -131,9 +120,7 @@
 </aside>
 @stop
 
-@section('css')
-    
-@stop
 @section('js')
     @include('layouts.backend._load_editor')
+    @include('layouts.backend._load_multi_select')
 @stop
