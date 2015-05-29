@@ -1,0 +1,80 @@
+@media (min-width: 1200px) {
+    .ct-san-pham .info {
+        padding-left: 10px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .navigation ul li a {
+        padding: 16px 13px;
+    }
+    .cua-hang-item img,
+    .ct-cua-hang img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 990px) {
+    .navigation {
+        display: none;
+    }
+    .mobile-btn {
+        display: block;
+    }
+    .logo img {}
+}
+
+@media (max-width: 768px) {
+    .cua-hang,
+    .copyright {
+        text-align: center;
+    }
+    section.copyright .right {
+        padding-top: 15px;
+        text-align: center;
+    }
+    .hotline {
+        display: none;
+    }
+    section.top-menu .text-left,
+    section.top-menu .text-right,
+    section.top-menu .text-center {
+        text-align: center;
+        padding: 5px 0;
+    }
+    .cua-hang h2 {
+        padding-top: 20px;
+    }
+    .logo img {
+        width: 100%;
+    }
+    .cart-panel {
+        padding-top: 20px;
+    }
+    section.copyright .info {
+        padding: 20px;
+    }
+       section.copyright .text-right {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-search-panel {
+        text-align: center;
+    }
+    .top-search {
+        display: inline-block;
+    }
+    .footer-info img {
+        width: 100%;
+    }
+    .category-product>li>ul {
+        position: static;
+        display: block;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 320px) {}

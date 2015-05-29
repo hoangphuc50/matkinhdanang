@@ -1,0 +1,72 @@
+/*ROBOTO FONT */
+
+/*@font-face {
+    font-family: "Roboto Regular";
+    src: url("roboto/Roboto-Regular.ttf");
+}
+@font-face {
+    font-family: "Roboto Medium";
+    src: url("roboto/Roboto-Medium.ttf");
+}
+@font-face {
+    font-family: "Roboto Light";
+    src: url("roboto/Roboto-Light.ttf");
+}
+@font-face {
+    font-family: "Roboto Thin";
+    src: url("roboto/Roboto-Thin.ttf");
+}
+@font-face {
+    font-family: "Roboto LightItalic";
+    src: url("roboto/Roboto-LightItalic.ttf");
+}
+@font-face {
+    font-family: "Roboto Black";
+    src: url("roboto/Roboto-Black.ttf");
+}
+@font-face {
+    font-family: "Roboto Bold Italic";
+    src: url("roboto/Roboto-BoldItalic.ttf");
+}
+@font-face {
+    font-family: "Roboto Bold";
+    src: url("roboto/Roboto-Bold.ttf");
+}*/
+/*Open Sans Font*/
+
+@font-face {
+    font-family: "Open Sans Light";
+    src: url("opensans/OpenSans-Light.ttf");
+}
+@font-face {
+    font-family: "Open Sans Semibold";
+    src: url("opensans/OpenSans-Semibold.ttf");
+}
+@font-face {
+    font-family: "Open Sans Regular";
+    src: url("opensans/OpenSans-Regular.ttf");
+}
+@font-face {
+    font-family: "Open Sans Bold";
+    src: url("opensans/OpenSans-Bold.ttf");
+}
+@font-face {
+    font-family: "Open Sans Italic";
+    src: url("opensans/OpenSans-Italic.ttf");
+}
+/*FONT AWESOME*/
+
+@font-face {
+    font-family: "FontAwesome";
+    src: url('font_awesome/fontawesome-webfont.eot');
+    /* IE9 Compat Modes */
+    
+    src: url("font_awesome/fontawesome-webfont.ttf"),
+    /* Safari, Android, iOS */
+    
+    url('font_awesome/fontawesome-webfont.woff'),
+    /* Modern Browsers */
+    
+    url('font_awesome/FontAwesome.otf'), url('font_awesome/fontawesome-webfont.svg');
+    /* Legacy iOS */
+}
