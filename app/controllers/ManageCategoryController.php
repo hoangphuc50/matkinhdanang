@@ -45,7 +45,8 @@ class ManageCategoryController extends \BaseController {
 	}
 
 	public function getAdd(){
-		return View::make('backend.category.create_edit');
+		$categories = Category::tree();
+		return View::make('backend.category.create_edit',compact('categories'));
 	}
 
 	public function postAdd(){
@@ -74,9 +75,13 @@ class ManageCategoryController extends \BaseController {
 			$category->highlight = Input::get('highlight');
 			$category->link = Input::get('link');
 			$category->category_type = Input::get('category_type');
+			$category->parent_id = Input::get('parent_id');
 
 			$category->content = Input::get('content');
-			$category->image = uploadPhoto('uploads/category','image',800);
+			if(Input::hasFile('image')){
+				$category->image = uploadPhoto('uploads/category',Input::file('image'),800);
+			}
+			
 			$category->save();
 
 			return Redirect::to('admin/categories')->with('success_message', 'Đã tạo mới một chuyên mục');
@@ -85,8 +90,9 @@ class ManageCategoryController extends \BaseController {
 
 	public function getEdit($id){
 		$category = Category::find($id);
+		$categories = Category::tree();
 		if(empty($category)){return Redirect::to('admin/categories')->with('error_message', 'Dữ liệu không tồn tại');}
-		return View::make('backend.category.create_edit',compact('category'));
+		return View::make('backend.category.create_edit',compact('category','categories'));
 	}
 
 	public function postEdit(){
@@ -113,16 +119,16 @@ class ManageCategoryController extends \BaseController {
 			$category->highlight = Input::get('highlight');
 			$category->link = Input::get('link');
 			$category->category_type = Input::get('category_type');
-
+			$category->parent_id = Input::get('parent_id');
 			$category->content = Input::get('content');
 
 			//Check delete image
 			if(Input::hasFile('image')){
 				if(!empty($category->image))
 				{
-					File::delete($category->image);
+					File::delete(categoryImageFolder().$category->image);
 				}
-				$category->image = uploadPhoto('uploads/category','image',800);
+				$category->image = uploadPhoto('uploads/category',Input::file('image'),800);
 			}
 
 			$category->save();
@@ -142,7 +148,7 @@ class ManageCategoryController extends \BaseController {
 		if(empty($category)){return Redirect::to('admin/categories')->with('error_message', 'Dữ liệu không tồn tại');}
 		if(!empty($category->image))
 		{
-			File::delete($category->image);
+			File::delete(categoryImageFolder().$category->image);
 		}
 		$category->delete();
 		return Redirect::to('admin/categories')->with('success_message', 'Dữ liệu đã được xóa.');

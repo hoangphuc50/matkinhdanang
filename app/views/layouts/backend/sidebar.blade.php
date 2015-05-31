@@ -64,7 +64,7 @@
                 </a>
             </li>
 
-            <li>
+            <!-- <li>
                 <a href="{{URL::to('/admin/photos')}}">
                     <i class="fa fa-picture-o"></i>
                     <span>Hình ảnh</span>
@@ -77,11 +77,18 @@
                     <span>Nhà sản xuất</span>
                    
                 </a>
-            </li>
+            </li> -->
             <li>
-                <a href="{{URL::to('/admin/blocks')}}">
+                <a href="{{URL::to('/admin/block_htmls')}}">
                     <i class="fa fa-file-code-o"></i>
                     <span>Block HTML</span>
+                   
+                </a>
+            </li>
+            <li>
+                <a href="{{URL::to('/admin/menu_kinhs')}}">
+                    <i class="fa fa-eye"></i>
+                    <span>Menu kính</span>
                    
                 </a>
             </li>

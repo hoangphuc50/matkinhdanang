@@ -74,7 +74,7 @@ class ManageBlogController extends \BaseController {
 			$blog->highlight = Input::get('highlight');
 			$blog->content = Input::get('content');
 			if(Input::hasFile('image')){
-				$blog->image = uploadPhoto('uploads/blog','image',800);				
+				$blog->image = uploadPhoto('uploads/blog',Input::file('image'),800);				
 			}
 			$blog->save();
 
@@ -129,7 +129,7 @@ class ManageBlogController extends \BaseController {
 				{
 					File::delete($blog->image);
 				}
-				$blog->image = uploadPhoto('uploads/blog','image',800);
+				$blog->image = uploadPhoto('uploads/blog',Input::file('image'),800);
 			}
 			$blog->save();
 

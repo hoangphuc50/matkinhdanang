@@ -1,4 +1,19 @@
 <?php
+function productImageFolder(){
+    return 'uploads/product/';
+}  
+function categoryImageFolder(){
+    return 'uploads/category/';
+}
+function blogImageFolder(){
+    return 'uploads/blog/';
+} 
+function blockImageFolder(){
+    return 'uploads/block_html/';
+}
+function kinhImageFolder(){
+    return 'uploads/menu_kinh/';
+}
 function checkAdmin(){
     if(Auth::user()->user_type=="admin"){
         return true;
@@ -33,12 +48,12 @@ function adminSort($text = "",$column = "",$sort = "desc"){
 *
 * @return   string  image_url
 */
-function uploadPhoto($destinationPath, $input_name,$width=1600,$height=null) {
+function uploadPhoto($destinationPath, $file,$width=1600,$height=null) {
     $image_url = '';
-    $file = Input::file($input_name);
+    //$file = Input::file($input_name);
     $extension = $file->getClientOriginalExtension();
-    $filename  = strtolower(str_random(10)) . '.' .$extension;
-    $uploadPath = public_path().'/'.$destinationPath.'/';
+    $filename  = strtolower(str_random(15)) . '.' .$extension;
+    $uploadPath = $destinationPath.'/';
 
     $img = Image::make($file);
 
@@ -51,5 +66,48 @@ function uploadPhoto($destinationPath, $input_name,$width=1600,$height=null) {
 
     $img->save($uploadPath.$filename);
     $image_url = $destinationPath.'/'.$filename;
-    return $image_url;
+    return $filename;
+}
+
+function uploadPhotoWithThumb($destinationPath, $file,$width=1600,$height=null) {
+    $image_url = '';
+    //$file = Input::file($input_name);
+    $extension = $file->getClientOriginalExtension();
+    $filename  = strtolower(str_random(15)) . '.' .$extension;
+    $uploadPath = $destinationPath.'/';
+
+    $img = Image::make($file);
+
+    $image_size = getimagesize($file);
+    if($image_size[0] > $width){
+        $img->resize($width, $height, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+    }
+
+    $img->save($uploadPath.$filename);
+    $image_url = $destinationPath.'/'.$filename;
+
+    //Create thumb
+    $thumb_img = $img->resize(320, $height, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+    $thumb_img->save($uploadPath.'/thumb/'.$filename);
+    //End create thumb
+
+    return $filename;
+}
+
+function uploadFile($destinationPath, $input_name) {
+    $file_url = '';
+    $file = Input::file($input_name);
+    $extension = $file->getClientOriginalExtension();
+    if (in_array($extension, ['jpg','png','gif','zip','rar','7z'])){
+        $filename  = strtolower(str_random(15)) . '.' .$extension;
+        $uploadPath = $destinationPath.'/';
+
+        $file->move($destinationPath, $filename);
+        $file_url = $destinationPath.'/'.$filename;
+    }
+    return $file_url;
 }
