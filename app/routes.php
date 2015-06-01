@@ -11,8 +11,8 @@
 |
 */
 Route::get('/', 'HomeController@displayIndexPage');
-Route::get('san-pham/{id}', 'ProductController@displayDetailProductPage');
-Route::get('danh-muc/{id}', 'ProductController@displayCategoryProductPage');
+Route::get('san-pham/{id}', 'HomeController@displayDetailProductPage');
+Route::get('danh-muc/{id}', 'HomeController@displayCategoryPage');
 
 Route::get('muc-tin/{id}', 'BlogController@displayCategoryBlogPage');
 Route::get('tin/{id}', 'BlogController@displayDetailBlogPage');

@@ -1178,9 +1178,15 @@ section.san-pham {
     margin-right: 10px;
     padding: 5px;
     border: 1px solid #ddd;
+    width: 100px;
+    height: 90px;
 }
 .product-images{
     padding: 15px 0;
+}
+
+.product-images a{
+    display: inline-block;
 }
 .content-title{
     font-size: 18px;
@@ -1261,4 +1267,8 @@ section.san-pham {
 /* content animate out */
 .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
   opacity: 0;
+}
+
+.format_table td{
+    padding: 5px 0;
 }

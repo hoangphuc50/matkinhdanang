@@ -93,22 +93,25 @@ class ManageProductController extends \BaseController {
 			$product->save();
 			
 			//save hình ảnh
-			$images = array_filter(Input::file('images'));
-			if(count($images)>0){
-				foreach($images as $image){
-					//Save Image
-					$image_ = new Picture;
-					$image_->name =  $product->name;
-					$image_->url = uploadPhotoWithThumb('uploads/product', $image,1000);
-					$image_->save();
+			if(Input::hasFile('images')){
+				$images = array_filter(Input::file('images'));
+				if(count($images)>0){
+					foreach($images as $image){
+						//Save Image
+						$image_ = new Picture;
+						$image_->name =  $product->name;
+						$image_->url = uploadPhotoWithThumb('uploads/product', $image,1000);
+						$image_->save();
 
-					//Save Product Image
-					$product_image = new ProductImage;
-					$product_image->product_id = $product->id;
-					$product_image->image_id = $image_->id;
-					$product_image->save();
+						//Save Product Image
+						$product_image = new ProductImage;
+						$product_image->product_id = $product->id;
+						$product_image->image_id = $image_->id;
+						$product_image->save();
+					}
 				}
 			}
+			
 
 			//save product category
 			$category_id= Input::get('category_id');
@@ -174,8 +177,17 @@ class ManageProductController extends \BaseController {
 			$category_id= Input::get('category_id');
 			if(!empty($category_id)){
 				$product_category = ProductCategory::where('product_id','=',$product->id)->first();
-				$product_category->category_id = $category_id;
-				$product_category->save();
+				if(empty($product_category)){
+					$product_category = new ProductCategory;
+					$product_category->product_id = $product->id;
+					$product_category->category_id = $category_id;
+					$product_category->save();
+				}
+				elseif($category_id != $product_category->category_id){
+					$product_category->category_id = $category_id;
+					$product_category->save();
+				}
+				
 			}
 			
 			return Redirect::to('admin/products')->with('success_message', 'Thông tin sản phẩm đã được thay đổi');
@@ -229,20 +241,22 @@ class ManageProductController extends \BaseController {
 		if(empty($product)){return Redirect::to('admin/products')->with('error_message', 'Dữ liệu không tồn tại');}
 		
 		//save hình ảnh
-		$images = array_filter(Input::file('images'));
-		if(count($images)>0){
-			foreach($images as $image){
-				//Save Image
-				$image_ = new Picture;
-				$image_->name =  $product->name;
-				$image_->url = uploadPhotoWithThumb('uploads/product', $image,1000);
-				$image_->save();
+		if(Input::hasFile('images')){
+			$images = array_filter(Input::file('images'));
+			if(count($images)>0){
+				foreach($images as $image){
+					//Save Image
+					$image_ = new Picture;
+					$image_->name =  $product->name;
+					$image_->url = uploadPhotoWithThumb('uploads/product', $image,1000);
+					$image_->save();
 
-				//Save Product Image
-				$product_image = new ProductImage;
-				$product_image->product_id = $product->id;
-				$product_image->image_id = $image_->id;
-				$product_image->save();
+					//Save Product Image
+					$product_image = new ProductImage;
+					$product_image->product_id = $product->id;
+					$product_image->image_id = $image_->id;
+					$product_image->save();
+				}
 			}
 		}
 		return Redirect::to('/admin/products/images/'.$product->id)->with('success_message', 'Hình ảnh đã được thêm');

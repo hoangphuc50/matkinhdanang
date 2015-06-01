@@ -85,7 +85,11 @@
                                        {{$category->id}}
 
                                     </td>
-                                    <td><a href="/admin/categories/detail/{{$category->id}}">{{$category->name}}</a>
+                                    <td><a href="/admin/categories/detail/{{$category->id}}">{{$category->name}} 
+                                        @if($category->parent_id > 0)
+                                        <span class="category-parent"> [{{$category->parent->name}}]</span>
+                                        @endif
+                                    </a>
                                     </td>
                                      <td>{{$category->category_type}}
                                     </td>

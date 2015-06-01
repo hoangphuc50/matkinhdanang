@@ -7,7 +7,7 @@ class Category extends Eloquent {
 		return $this->belongsToMany('Blog', 'blog_category', 'blog_id', 'category_id');
 	}
 	public function products() {
-		return $this->belongsToMany('Product', 'product_category', 'product_id', 'category_id');
+		return $this->belongsToMany('Product', 'product_category','category_id', 'product_id');
 	}
 
 	public function parent() {
@@ -23,7 +23,9 @@ class Category extends Eloquent {
     }  
 
     public static function tree($type="product") {
-
+    	if($type == "all"){
+    		return static::with(implode('.', array_fill(0, 100, 'children')))->where('parent_id', '=', NULL)->get();
+    	}
         return static::with(implode('.', array_fill(0, 100, 'children')))->where('category_type','=',$type)->where('parent_id', '=', NULL)->get();
 
     }

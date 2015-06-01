@@ -72,3 +72,12 @@ select.category-select{
 .image-list{
 	max-width: 250px;
 }
+.category-parent{
+    padding-left: 15px;
+    font-size: 12px;
+    color: #777;
+    font-weight: bold;
+}
+.table-responsive{
+	overflow-x:visible;
+}

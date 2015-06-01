@@ -9,10 +9,10 @@
                     <a href="#">Trang chủ</a>
                 </li>
                 <li>
-                    <a href="#">Mắt kính Rayban</a>
-                </li>
-                <li>
-                    <a href="#">Rayban Vip 450k</a>
+                    @foreach($san_pham->categories as $category)
+                    <a href="{{URL::to('danh-muc/'.$category->id)}}">{{$category->name}}</a>
+                    @endforeach
+                    
                 </li>
             </ul>
         </div>
@@ -20,21 +20,29 @@
             <div class="row">
                 <div class="col-md-7">
                     <div class="product-img">
-                        <img src="/template/minhrayban/images/san_pham/11.jpg">
+                        {{HTML::image(!empty($san_pham->image) ? productImageFolder().$san_pham->image : "/images/no_image.jpg",$san_pham->name)}}
                     </div>
                 </div>
                 <div class="col-md-5 product-info">
-                    <h1>Kính Rayban tráng gương MS178 </h1>
+                    <h1>{{$san_pham->name}}</h1>
                     <p>
-                        Kính mắt cao cấp DR02 với thiết kế mắt vuông cá tính chống tia UV gây hại, vừa bảo vệ an toàn cho đôi mắt, vừa mang lại vẻ cuốn hút cho cô gái ưa thích vẻ đẹp hiện đại và hài hòa
+                        {{$san_pham->description}}
                     </p>
                     <div class="price-panel">
+                        @if($san_pham->public_price == true and $san_pham->price > 0)
                         <span class="old-price">
-                            950.000 đ
+                            @if(!empty($san_pham->old_price))
+                            {{$san_pham->old_price}} đ
+                            @endif
                         </span>
                         <span class="price">
-                            800.000 đ
+                            {{$san_pham->price}} đ
                         </span>
+                        @else
+                        <span class="price">
+                            Liên hệ shop
+                        </span>
+                        @endif
                         <div class="buy-panel">
                             <div class="add-cart">
                                 <i class="fa fa-shopping-cart"></i>
@@ -56,60 +64,20 @@
             <div class="line"></div>
             <div class="product-content">
                 <div class="product-images">
-                    <a class="gallery-item" title="Nhãn hiệu : Thương hiệu nổi tiếng nước Pháp" href="/template/minhrayban/images/san_pham/13.jpg">
-                        <img src="/template/minhrayban/images/san_pham/12.jpg">
+                    @foreach($san_pham->images as $image)
+                    <a class="gallery-item" title="{{$image->name}}" href="{{URL::to(productImageFolder().$image->url)}}">
+                        {{HTML::image(productImageFolder().'/thumb/'.$image->url,$image->name)}}
                     </a>
-                    <a class="gallery-item" title="Nhãn hiệu : Thương hiệu nổi tiếng nước Pháp" href="/template/minhrayban/images/san_pham/14.jpg">
-                        <img src="/template/minhrayban/images/san_pham/12.jpg">
-                    </a>
-                    <a class="gallery-item" title="Nhãn hiệu : Thương hiệu nổi tiếng nước Pháp" href="/template/minhrayban/images/san_pham/11.jpg">
-                        <img src="/template/minhrayban/images/san_pham/12.jpg">
-                    </a>
-                    <a class="gallery-item" title="Nhãn hiệu : Thương hiệu nổi tiếng nước Pháp" href="/template/minhrayban/images/san_pham/11.jpg">
-                        <img src="/template/minhrayban/images/san_pham/12.jpg">
-                    </a>
-                    <a class="gallery-item" href="/template/minhrayban/images/san_pham/11.jpg">
-                        <img src="/template/minhrayban/images/san_pham/12.jpg">
-                    </a>
-                    <a class="gallery-item" href="/template/minhrayban/images/san_pham/11.jpg">
-                        <img src="/template/minhrayban/images/san_pham/12.jpg">
-                    </a>
-                    <a class="gallery-item" href="/template/minhrayban/images/san_pham/11.jpg">
-                        <img src="/template/minhrayban/images/san_pham/12.jpg">
-                    </a>
-                    
+                    @endforeach                    
                 </div>
                 <h2 class="content-title">
                         Đặc trưng sản phẩm
                     </h2>
-                <p>
-                    • Loại sản phẩm : Kính mắt
-                    <br> • Nhãn hiệu : Thương hiệu nổi tiếng nước Pháp
-                    <br> • Model : DR02-KM
-                    <br> • Đối tượng : Nữ
-                    <br> • Chất liệu : Gọng nhựa cao cấp, Mắt kính chống tia UV gây hại
-                    <br> • Màu gọng kính : Màu Nâu đốm, Màu Nude
-                    <br> • Màu mắt kính : Màu nâu tím
-                    <br> • Thiết kế : Độc đáo, cá tính
-                    <br> • Sản phẩm gồm : 1 kính DR+ 1 túi đựng kính + 1 hộp kính + 1 khăn lau.
-                </p>
+                {{$san_pham->feature}}
                 <h2 class="content-title">
                         Thông tin chi tiết
                     </h2>
-                <p>
-                    Được biết đến từ năm 1937, Thương hiệu thời trang nước Ý đã là một trong những thương hiệu hàng đầu của thị trường mắt kính chất lượng cao. Đây là một thương hiệu mà ngay cả những người không đam mê thời trang cũng dễ dàng bị chinh phục bởi kiểu dáng và chất lượng hàng đầu của sản phẩm. Cổ điển, lịch lãm, sành điệu, và quyến rũ là những từ có thể dùng để nói lên phong cách của Kính mắt thời trang cao cấp RB03
-                </p>
-                <img src="/template/minhrayban/images/san_pham/13.jpg">
-                <p>
-                    Được biết đến từ năm 1937, Thương hiệu thời trang nước Ý đã là một trong những thương hiệu hàng đầu của thị trường mắt kính chất lượng cao.
-                </p>
-                <img src="/template/minhrayban/images/san_pham/14.jpg">
-                <p>
-                    Kính mắt RB03 được thiết kế mắt thủy tinh chống xước, chịu lực tốt,được ứng dụng công nghệ tròng kính phân cực Polarized có tính năng chống chói và ngăn chặn ánh sáng phản chiếu từ mặt nước hay môi trường xung quanh.
-                </p>
-                <p>
-                    Kính mắt RB03 được thiết kế mắt thủy tinh chống xước, chịu lực tốt,được ứng dụng công nghệ tròng kính phân cực Polarized có tính năng chống chói và ngăn chặn ánh sáng phản chiếu từ mặt nước hay môi trường xung quanh. Do tính năng ưu việt hơn mắt kính thông thường, kính Polarized được sử dụng rộng rãi cho những hoạt động ngoài trời như lái xe, chơi golf, du lịch bãi biển, câu cá... bởi nó mang lại hình ảnh rõ nét và trung thực.
-                </p>
+                {{$san_pham->content}}
                 <h2 class="content-title">
                         Gửi nhận hàng
                     </h2>

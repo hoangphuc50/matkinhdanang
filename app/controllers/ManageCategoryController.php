@@ -45,7 +45,7 @@ class ManageCategoryController extends \BaseController {
 	}
 
 	public function getAdd(){
-		$categories = Category::tree();
+		$categories = Category::tree('all');
 		return View::make('backend.category.create_edit',compact('categories'));
 	}
 
@@ -74,6 +74,7 @@ class ManageCategoryController extends \BaseController {
 			$category->state = Input::get('state');
 			$category->highlight = Input::get('highlight');
 			$category->link = Input::get('link');
+			$category->order = Input::get('order');
 			$category->category_type = Input::get('category_type');
 			$category->parent_id = Input::get('parent_id');
 
@@ -114,7 +115,7 @@ class ManageCategoryController extends \BaseController {
 			$category->name = Input::get('name');
 			$category->description = Input::get('description');
 			$category->short_description = Input::get('short_description');
-
+			$category->order = Input::get('order');
 			$category->state = Input::get('state');
 			$category->highlight = Input::get('highlight');
 			$category->link = Input::get('link');

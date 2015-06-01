@@ -2,6 +2,9 @@
     .ct-san-pham .info {
         padding-left: 10px;
     }
+    .product-item img{
+        height: 205px;
+    }
 }
 
 @media (max-width: 1200px) {

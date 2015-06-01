@@ -42,7 +42,7 @@
                 <div class="box-body">
                     <div class="form-group {{{ $errors->has('name') ? 'has-error' : '' }}}">
                         <label>Tên chuyên mục</label>
-                        {{Form::text('name',isset($category) ? $category->name : '', array('class' => 'form-control','placeholder' => 'Tên nhà sản xuất'))}}
+                        {{Form::text('name',isset($category) ? $category->name : '', array('class' => 'form-control','placeholder' => 'Tên danh mục'))}}
                         {{ $errors->first('name', '<span class="help-block">:message</span>') }}
                     </div>
 
@@ -55,6 +55,10 @@
                                     <option value="{{$item->id}}" <?php if($item->id == $category->parent_id) echo 'selected="selected"'?> class="optionGroup">{{$item->name}}</option>
                                     @foreach($item['children'] as $child)
                                         <option value="{{$child->id}}" <?php if($child->id == $category->parent_id) echo 'selected="selected"'?> class="optionChild">{{$child->name}}</option>
+
+                                        @foreach($child['children'] as $child_2)
+                                            <option value="{{$child_2->id}}" <?php if($category->parent_id == $child_2->id) echo 'selected="selected"'?> class="optionChild2">{{$child_2->name}}</option>
+                                        @endforeach
                                     @endforeach
                                 @endforeach
                             @else
@@ -62,6 +66,9 @@
                                     <option value="{{$item->id}}" class="optionGroup">{{$item->name}}</option>
                                     @foreach($item['children'] as $child)
                                         <option value="{{$child->id}}" class="optionChild">{{$child->name}}</option>
+                                        @foreach($child['children'] as $child_2)
+                                            <option value="{{$child_2->id}}" class="optionChild2">{{$child_2->name}}</option>
+                                        @endforeach
                                     @endforeach
                                 @endforeach
                             @endif
@@ -132,11 +139,11 @@
                         <br>
                         <div class="form-radio">
                             <label>
-                                {{Form::radio('highlight',true,true,array())}}
+                                {{Form::radio('highlight',true,false,array())}}
                                 Có&nbsp;&nbsp;&nbsp;
                             </label>
                             <label>
-                                {{Form::radio('highlight',false,false,array())}}
+                                {{Form::radio('highlight',false,true,array())}}
                                 Không
                             </label>  
                         </div>               

@@ -1,89 +1,64 @@
-    <section class="main-menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="mobile-btn">
-                        <i class="fa fa-bars"></i>
-                    </div>
-                    <div class="navigation">
-                        <ul>
+<?php
+    $main_menu = Category::tree("menu");
+?>
+<section class="main-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mobile-btn">
+                    <i class="fa fa-bars"></i>
+                </div>
+                <div class="navigation">
+                    <ul>
+                        <li>
+                            <a href="/" class="active">Trang chủ
+                            </a>
+                        </li>
+                        @foreach($main_menu as $menu)
                             <li>
-                                <a href="#" class="active">Trang chủ
+                                <a href="{{URL::to('category/'.$menu->id)}}">{{$menu->name}}
                                 </a>
-                            </li>
-                            <li>
-                                <a href="#">Giới thiệu
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">Hướng dẫn mua hàng
-                                </a>
-                                <ul class="">
-                                    <li><a href="#">Hướng dẫn đặt hàng</a>
-                                    </li>
-                                    <li><a href="#">Hướng dẫn thanh toán</a>
-                                    </li>
-                                    <li><a href="#">Qui định đổi trả hàng</a>
-                                    </li>
-                                    <li><a href="#">Chế độ bảo hành</a>
-                                    </li>
+                                @if(count($menu['children'])>0)
+                                <ul>
+                                    @foreach($menu['children'] as $menu_child)
+                                        <li>
+                                            <a href="{{URL::to('category/'.$menu_child->id)}}" class="active">{{$menu_child->name}}
+                                            </a>
+                                        </li>  
+                                    @endforeach
                                 </ul>
-                            </li>
-                            <li>
-                                <a href="#">Khuyến mãi hot
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">Đối tác
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">Bản đồ liên hệ
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                                @endif
+                            </li>  
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
-    <section class="mobile-menu">
-        <div class="container">
-            <ul>
+    </div>
+</section>
+<section class="mobile-menu">
+    <div class="container">
+        <ul>
+            <li>
+                <a href="/" class="active">Trang chủ
+                </a>
+            </li>
+            @foreach($main_menu as $menu)
                 <li>
-                    <a href="#" class="active">Trang chủ
+                    <a href="{{URL::to('category/'.$menu->id)}}">{{$menu->name}}
                     </a>
-                </li>
-                <li>
-                    <a href="#">Giới thiệu
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Hướng dẫn mua hàng
-                    </a>
+                    @if(count($menu['children'])>0)
                     <ul>
-                        <li><a href="#">Hướng dẫn đặt hàng</a>
-                        </li>
-                        <li><a href="#">Hướng dẫn thanh toán</a>
-                        </li>
-                        <li><a href="#">Qui định đổi trả hàng</a>
-                        </li>
-                        <li><a href="#">Chế độ bảo hành</a>
-                        </li>
+                        @foreach($menu['children'] as $menu_child)
+                            <li>
+                                <a href="{{URL::to('category/'.$menu_child->id)}}" class="active">{{$menu_child->name}}
+                                </a>
+                            </li>  
+                        @endforeach
                     </ul>
-                </li>
-                <li>
-                    <a href="#">Khuyến mãi hot
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Đối tác
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Bản đồ liên hệ
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </section>
+                    @endif
+                </li>  
+            @endforeach
+        </ul>
+    </div>
+</section>
