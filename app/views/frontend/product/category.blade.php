@@ -3,6 +3,21 @@
 @section('content') 
 <div class="col-md-9 col-sm-8">
     <div class="main-wrapper">
+        <div class="breakcrum">
+            <ul>
+                <li>
+                    <a href="#">Trang chủ</a>
+                </li>
+                @if(!empty($chuyen_muc->parent->name))
+                    <li>
+                       <a href="#">{{$chuyen_muc->parent->name}}</a> 
+                    </li>
+                @endif
+                <li>
+                   <a href="#">{{$chuyen_muc->name}}</a> 
+                </li>
+            </ul>
+        </div>
         <h2 class="title-2">
             {{$chuyen_muc->name}}
         </h2>
@@ -16,9 +31,9 @@
                         <p class="price">
                             @if($sp1->public_price == true and $sp1->price > 0)
                                 @if(!empty($sp1->old_price))
-                                    <span>{{$sp1->old_price}} đ</span>
+                                    <span>{{displayPrice($sp1->old_price)}} đ</span>
                                 @endif
-                            {{$sp1->price}} đ
+                            {{displayPrice($sp1->price)}} đ
                             @else
                                 Liên hệ shop
                             @endif

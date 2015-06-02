@@ -42,46 +42,75 @@ $(document).ready(function() {
     });
 
 
-$('.gallery-item').magnificPopup({
-    removalDelay: 300,
+    $('.gallery-item').magnificPopup({
+        removalDelay: 300,
 
-  // Class that is added to popup wrapper and background
-  // make it unique to apply your CSS animations just to this exact popup
-  mainClass: 'mfp-fade',
-  type: 'image',
-  gallery:{
-    enabled:true
-  }
-});
+        // Class that is added to popup wrapper and background
+        // make it unique to apply your CSS animations just to this exact popup
+        mainClass: 'mfp-fade',
+        type: 'image',
+        gallery: {
+            enabled: true
+        }
+    });
 
+    //FOR CART
+    $(".up-down .plus").click(function() {
+        var number_of_item = $(".up-down .num").val();
+        if(number_of_item >= 1){
+            number_of_item++;
+        }else{
+            number_of_item = 1;
+        }
+        $(".up-down .num").val(number_of_item);
+    });
+    $(".up-down .minus").click(function() {
+        var number_of_item = $(".up-down .num").val();
+        if(number_of_item > 1){
+            number_of_item--;
+        }else{
+            number_of_item = 1;
+        }
+        $(".up-down .num").val(number_of_item);
+    });
 
-    /*===Map==*/
-    // $("#map").gmap3({
-    //     marker: {
-    //         address: "117 Nguyễn Văn Thoại - Quận Sơn Trà - TP Đà Nẵng",
-    //         options: {
-    //             icon: "images/location.png"
-    //         }
-    //     },
-    //     overlay: {
-    //         address: "117 Nguyễn Văn Thoại - Quận Sơn Trà - TP Đà Nẵng",
-    //         options: {
-    //             content: '<div class="style-tooltip-map"><i class="icon-ib icon-scissors"></i>Tầng 2, 123 Đỗ Quang TP. Đà Nẵng, Việt Nam</div>',
-    //             offset: {
-    //                 y: -120,
-    //                 x: 20
-    //             }
-    //         }
-    //     },
-    //     map: {
-    //         options: {
-    //             styles: [{
-    //                 stylers: [{
-    //                     "saturation": 0
-    //                 }]
-    //             }, ],
-    //             zoom: 15
-    //         }
-    //     }
-    // });
+    $(".add-cart").click(function() {
+        // var data = $(".add-cart-form").serialize();
+        // $.ajax({
+        //     type: "GET",
+        //     url: "/cart/add",
+        //     data: data,
+        //     success: function(respon) {
+        //         $(".cart-panel").html(respon);
+        //     }
+        // });
+        // return false;
+        $(".add-cart-form").submit();
+    });
+    $(document).on('click','.cart-update-qty .updatebtn',function(){
+        var data = $(this).parent().parent().find("form").serialize();
+        $.ajax({
+            type: "GET",
+            url: "/cart/update",
+            data: data,
+            success: function(respon) {
+                $(".cart-index-content").html(respon);
+            }
+        });
+        return false;
+    })
+    /*
+    $(".cart-update-qty .updatebtn").click(function() {
+        var data = $(this).parent().parent().find("form").serialize();
+        $.ajax({
+            type: "GET",
+            url: "/cart/update",
+            data: data,
+            success: function(respon) {
+                $(".cart-index-content").html(respon);
+            }
+        });
+        return false;
+    });
+    */
 });

@@ -15,9 +15,9 @@
                         <p class="price">
                             @if($sp1->public_price == true and $sp1->price > 0)
                                 @if(!empty($sp1->old_price))
-                                    <span>{{$sp1->old_price}} đ</span>
+                                    <span>{{displayPrice($sp1->old_price)}} đ</span>
                                 @endif
-                            {{$sp1->price}} đ
+                            {{displayPrice($sp1->price)}} đ
                             @else
                                 Liên hệ shop
                             @endif
@@ -40,9 +40,9 @@
                         <p class="price">
                             @if($sp1->public_price == true and $sp1->price > 0 )
                                 @if(!empty($sp1->old_price))
-                                    <span>{{$sp1->old_price}} đ</span>
+                                    <span>{{displayPrice($sp1->old_price)}} đ</span>
                                 @endif
-                            {{$sp1->price}} đ
+                            {{displayPrice($sp1->price)}} đ
                             @else
                                 Liên hệ shop
                             @endif

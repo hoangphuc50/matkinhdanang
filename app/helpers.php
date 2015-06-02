@@ -111,3 +111,10 @@ function uploadFile($destinationPath, $input_name) {
     }
     return $file_url;
 }
+
+function displayPrice($price=0){
+    if(is_numeric($price)){
+        return number_format($price , 0, ',', '.');
+    }
+    return 0;
+}

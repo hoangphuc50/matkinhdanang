@@ -32,11 +32,11 @@
                         @if($san_pham->public_price == true and $san_pham->price > 0)
                         <span class="old-price">
                             @if(!empty($san_pham->old_price))
-                            {{$san_pham->old_price}} đ
+                            {{displayPrice($san_pham->old_price)}} đ
                             @endif
                         </span>
                         <span class="price">
-                            {{$san_pham->price}} đ
+                            {{displayPrice($san_pham->price)}} đ
                         </span>
                         @else
                         <span class="price">
@@ -50,9 +50,12 @@
                             <div class="number">
                                 Số lượng
                                 <div class="up-down">
+                                    <form action="{{URL::to('cart/add')}}" method="GET" class="add-cart-form"> 
                                     <div class="minus"></div>
-                                    <input type="text" class="num" value="1">
+                                    <input type="text" class="num" name="number_of_item" value="1">
+                                    {{Form::hidden('product_id', $san_pham->id,array('class'=>"product_id"))}}
                                     <div class="plus"></div>
+                                    </form>
                                 </div>
                                 <h3>Mua hàng</h3>
                             </div>

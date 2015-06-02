@@ -3,13 +3,16 @@ body {
     font-size: 14px;
     color: #555;
     background: #fff;
+
 }
 
 .fa {
     font-family: "FontAwesome";
 }
 
-h1 {}
+h1 {
+    line-height: 30px;
+}
 
 h2 {
     margin: 0;
@@ -17,6 +20,7 @@ h2 {
 
 h3 {
     margin: 0;
+    line-height: 24px;
 }
 
 ul,
@@ -32,7 +36,7 @@ a:hover {
 }
 
 p {
-    line-height: 22px;
+    line-height: 24px;
 }
 
 .line {
@@ -391,7 +395,7 @@ h2.title {
     font-family: "Open Sans Bold", sans-serif;
     color: #529fd3;
     text-transform: uppercase;
-    padding: 10px 0;
+    padding: 15px 0;
 }
 
 .title-2>span {
@@ -977,15 +981,12 @@ section.san-pham {
     border: 1px solid #ddd;
 }
 
-.cart .product-name {
-    padding: 0 5px;
-}
 
 .cart .product-total-price {
-    font-size: 15px;
+    font-size: 16px;
     color: #ff3a34;
-    text-transform: uppercase;
     padding-left: 10px;
+    white-space: nowrap;
 }
 
 .cart .shopping-cart-total {
@@ -1011,7 +1012,8 @@ section.san-pham {
 }
 
 .cart .shopping-cart-total p {
-    color: #666;
+    color: red;
+    font-size: 18px;
 }
 
 .mobile-menu ul ul {
@@ -1143,7 +1145,7 @@ section.san-pham {
     border-bottom-left-radius: 3px;
     border-right: none;
     background: url('../images/plus-minus-icon.png') no-repeat;
-    background-position: 6px 6px;
+    background-position: 6px -15px;
     height: 32px;
     width: 32px;
     cursor: pointer;
@@ -1156,7 +1158,7 @@ section.san-pham {
     border-bottom-right-radius: 3px;
     border-left: none;
     background: url('../images/plus-minus-icon.png') no-repeat;
-    background-position: 6px -15px;
+    background-position: 6px 6px;
     height: 32px;
     width: 32px;
     cursor: pointer;
@@ -1191,7 +1193,7 @@ section.san-pham {
 .content-title{
     font-size: 18px;
     font-family: "Open Sans Bold", sans-serif;
-    background: #ddd;
+    background: #eee;
     color: #555;
     padding: 10px 0;
     margin: 15px 0;
@@ -1271,4 +1273,82 @@ section.san-pham {
 
 .format_table td{
     padding: 5px 0;
+}
+.shopping-cart-list-product td{
+    padding: 6px 0;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    
+}
+.shopping-cart-list-product td.product-name{
+    color: #333;
+    font-size: 14px;
+}
+.table-cart{
+    border: 1px solid #ddd;
+    text-align: center;
+}
+.table-cart thead tr{
+    text-align: center;
+    background: #eee;
+}
+.table-cart thead tr th {
+    padding: 10px 0;
+    font-size: 16px;
+    text-align: center;
+}
+.cart-img{
+    float: left;
+    margin-right: 10px;
+}
+.table-cart tbody tr td:first-child{
+    text-align: left;
+}
+.cart-total-price{
+    color: #333;
+    font-size: 16px;
+    font-family: "Open Sans Semibold", sans-serif;
+    padding: 15px 0;
+    background: #eee;
+    text-align: right;
+    padding-right: 30px;
+}
+.cart-total-price span{
+    color: red;
+    font-size: 20px;
+}
+.cart-price{
+    color: red;
+    font-size: 16px;
+}
+.cart-name{
+    font-family: "Open Sans Semibold", sans-serif;
+}
+.cart-update-qty .deletebtn{
+    background: url('../images/delete_quantity.png') top left no-repeat;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top:5px;
+}
+.cart-update-qty .updatebtn{
+    background: url('../images/update_quantity.png') top left no-repeat;
+    border: none;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin-left: 5px;
+    position: relative;
+    top:5px;
+}
+.cart-update-qty{
+    
+}
+.inputbox_update{
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ddd;
 }
