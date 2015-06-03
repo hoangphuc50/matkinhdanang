@@ -50,7 +50,7 @@
                             <div class="number">
                                 Số lượng
                                 <div class="up-down">
-                                    <form action="{{URL::to('cart/add')}}" method="GET" class="add-cart-form"> 
+                                    <form action="{{URL::to('cart/add')}}" method="POST" class="add-cart-form"> 
                                     <div class="minus"></div>
                                     <input type="text" class="num" name="number_of_item" value="1">
                                     {{Form::hidden('product_id', $san_pham->id,array('class'=>"product_id"))}}
@@ -98,7 +98,7 @@
                 <p>
                     -Mình đã đăng kí SMS Banking ,các bạn vừa chuyển tiền là mình nhận được ngay tin nhắn của Ngân hàng .Nên mình sẽ gửi hàng ngay trong ngày .
                 </p>
-                <a href="#" class="dat-hang-ngay"><i class="fa fa-shopping-cart"></i> Đặt hàng ngay</a>
+                <div href="#" id="dat_hang_ngay" class="dat-hang-ngay"><i class="fa fa-shopping-cart"></i> Đặt hàng ngay</div>
             </div>
             <div class="cam-ket">
                 <h2>Cam kết của chúng tôi</h2>
@@ -113,39 +113,26 @@
                 <h2 class="title">Sản phẩm liên quan</h2>
                 <div class="line"></div>
                 <div class="row san-pham-noi-bat">
+                    @foreach($san_pham_lien_quan as $sp1)
                     <div class="col-md-4 col-sm-6 ">
                         <div class="product-item">
-                            <a href="#">
-                                <img src="/template/minhrayban/images/san_pham/1.jpg" />
-                                <h3>Kính Louis Vuitton Kỳ Duyên MS204 </h3>
+                            <a href="{{URL::to('san-pham/'.$sp1->id)}}">
+                                {{HTML::image(!empty($sp1->image) ? productImageFolder().$sp1->image : "/images/no_image.jpg",$sp1->name)}}
+                                <h3>{{$sp1->name}} </h3>
                                 <p class="price">
-                                    <span>5.000.000 đ</span>4.800.000 đ
+                                    @if($sp1->public_price == true and $sp1->price > 0)
+                                        @if(!empty($sp1->old_price))
+                                            <span>{{displayPrice($sp1->old_price)}} đ</span>
+                                        @endif
+                                    {{displayPrice($sp1->price)}} đ
+                                    @else
+                                        Liên hệ shop
+                                    @endif
                                 </p>
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="product-item">
-                            <a href="#">
-                                <img src="/template/minhrayban/images/san_pham/2.jpg" />
-                                <h3>Kính Louis Vuitton Kỳ Duyên MS204</h3>
-                                <p class="price">
-                                    <span>700.000 đ</span>800.000 đ
-                                </p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="product-item">
-                            <a href="#">
-                                <img src="/template/minhrayban/images/san_pham/3.jpg" />
-                                <h3>Kính Louis Vuitton Kỳ Duyên MS204</h3>
-                                <p class="price">
-                                    <span>700.000 đ</span>800.000 đ
-                                </p>
-                            </a>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

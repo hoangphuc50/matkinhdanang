@@ -17,10 +17,11 @@ Route::get('danh-muc/{id}', 'HomeController@displayCategoryPage');
 Route::get('muc-tin/{id}', 'BlogController@displayCategoryBlogPage');
 Route::get('tin/{id}', 'BlogController@displayDetailBlogPage');
 
-Route::get('cart/add', 'CartController@addCart');
+Route::get('cart/add', 'CartController@displayIndexPage');
+Route::post('cart/add', 'CartController@addCart');
 Route::get('cart', 'CartController@displayIndexPage');
 Route::get('cart/destroy', 'CartController@deleteCart');
-Route::get('cart/update', 'CartController@updateCart');
+Route::post('cart/update', 'CartController@updateCart');
 
 
 Route::controller('admin/users', 'ManageUserController');

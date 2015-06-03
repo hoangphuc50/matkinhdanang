@@ -32,6 +32,8 @@ class HomeController extends BaseController {
 		}
 		if($chuyen_muc->category_type == "product"){
 			return $this->displayProductCategoryPage($chuyen_muc);
+		}elseif($chuyen_muc->category_type == "menu"){
+			return $this->displayBlogCategoryPage($chuyen_muc);
 		}
 	}
 
@@ -46,8 +48,34 @@ class HomeController extends BaseController {
 	public function displayDetailProductPage($id){
 		$san_pham = Product::find($id);
 		if(empty($san_pham)){ return View::make('frontend.errors.404'); }
+		$san_pham_lien_quan = Product::where('state','=',true)->where('id','!=',$id)->orderByRaw("RAND()")->take(3)->get();
 		$data['san_pham'] = $san_pham;
+		$data['san_pham_lien_quan'] = $san_pham_lien_quan;
 		return View::make('frontend.product.detail',$data);
 	}
 
+	public function displayBlogCategoryPage($chuyen_muc){
+		$bai_viet_ = $chuyen_muc->blogs()->get();
+		$bai_viet = $chuyen_muc->blogs()->paginate(15);
+
+		if(count($bai_viet) < 2){
+			$id = '';
+			foreach ($bai_viet as $row) {
+				$id = $row->id;
+				break;
+			}
+			return $this->displayDetailBlogPage($id);
+		}
+
+		$data['chuyen_muc'] = $chuyen_muc;
+		$data['bai_viet'] = $bai_viet;
+		return View::make('frontend.blog.category',$data);
+	}
+
+	public function displayDetailBlogPage($id){
+		$bai_viet = Blog::find($id);
+		if(empty($bai_viet)){ return View::make('frontend.errors.404'); }
+		$data['bai_viet'] = $bai_viet;
+		return View::make('frontend.blog.detail',$data);
+	}
 }

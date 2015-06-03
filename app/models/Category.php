@@ -4,7 +4,7 @@ class Category extends Eloquent {
 	protected $table = 'categories';
 
 	public function blogs() {
-		return $this->belongsToMany('Blog', 'blog_category', 'blog_id', 'category_id');
+		return $this->belongsToMany('Blog', 'blog_category','category_id', 'blog_id');
 	}
 	public function products() {
 		return $this->belongsToMany('Product', 'product_category','category_id', 'product_id');

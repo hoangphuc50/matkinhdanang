@@ -58,7 +58,7 @@
                 <td>
                     <div class="cart-update-qty">
                         <form action="{{URL::to('cart/update')}}" method="POST" style="display: inline;">
-                            <a class="deletebtn" title="Xóa sản phẩm khỏi giỏ hàng" href=""> </a>
+                            <a class="deletebtn" title="Xóa sản phẩm khỏi giỏ hàng"> </a>
                             <input type="text" title="Cập nhật số lượng trong giỏ hàng" class="inputbox_update" name="quantity" value="{{$row->qty}}">
                             <a class="updatebtn" title="Cập nhật số lượng trong giỏ hàng" ></a>
                             {{Form::hidden('id', $row->rowid)}}       
@@ -75,6 +75,56 @@
             <div class="cart-total-price">
                 Tổng giá trị thanh toán: <span>{{displayPrice(Cart::instance('shopping')->total())}} đ</span> 
             </div>
+        </div>
+        <div class="cart-ship">
+            <p class="ship-des">
+                Quý khách vui lòng nhập thông tin liên lạc vào mục dưới đây. Mắt Kính MinhRayBan sẽ gọi điện xác nhận và giao sản phẩm đến địa chỉ của quý khách trong thời gian sớm nhất.
+            </p>
+            <form action="">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="form-row">
+                        <label>
+                            Email
+                        </label>
+                        <input type="email" required placeholder="Nhập địa chỉ email của bạn">
+                    </div>
+                    <div class="form-row">
+                        <label>
+                            Họ và tên
+                        </label>
+                        <input type="text" required placeholder="Nhập họ và tên đầy đủ">
+                    </div>
+                    <div class="form-row">
+                        <label>
+                            Địa chỉ
+                        </label>
+                        <input type="text" required placeholder="Nhập địa chỉ chính xác và chi tiết để chúng tôi có thể giao hàng">
+                    </div>
+                    <div class="form-row">
+                        <label>
+                            Địa chỉ
+                        </label>
+                        <input type="text" required placeholder="Nhập điện thoại của bạn">
+                    </div>
+                    
+                    <div class="form-submit">
+                        <a href="#" class="dat-hang-ngay">Xác nhận</a>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-row">
+                        <label>
+                            Thông tin bổ sung
+                        </label>
+                        <textarea placeholder="Thêm thông tin cần thiết cho quá trình giao nhận hàng"></textarea>
+                    </div>
+                    <div class="form-des">
+                        
+                    </div>
+                </div>
+            </div>
+            </form>
         </div>
         
 

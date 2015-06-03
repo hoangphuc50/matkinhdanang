@@ -16,13 +16,13 @@
                         </li>
                         @foreach($main_menu as $menu)
                             <li>
-                                <a href="{{URL::to('category/'.$menu->id)}}">{{$menu->name}}
+                                <a href="{{URL::to('danh-muc/'.$menu->id)}}">{{$menu->name}}
                                 </a>
                                 @if(count($menu['children'])>0)
                                 <ul>
                                     @foreach($menu['children'] as $menu_child)
                                         <li>
-                                            <a href="{{URL::to('category/'.$menu_child->id)}}" class="active">{{$menu_child->name}}
+                                            <a href="{{URL::to('danh-muc/'.$menu_child->id)}}" class="active">{{$menu_child->name}}
                                             </a>
                                         </li>  
                                     @endforeach
@@ -45,13 +45,13 @@
             </li>
             @foreach($main_menu as $menu)
                 <li>
-                    <a href="{{URL::to('category/'.$menu->id)}}">{{$menu->name}}
+                    <a href="{{URL::to('danh-muc/'.$menu->id)}}">{{$menu->name}}
                     </a>
                     @if(count($menu['children'])>0)
                     <ul>
                         @foreach($menu['children'] as $menu_child)
                             <li>
-                                <a href="{{URL::to('category/'.$menu_child->id)}}" class="active">{{$menu_child->name}}
+                                <a href="{{URL::to('danh-muc/'.$menu_child->id)}}" class="active">{{$menu_child->name}}
                                 </a>
                             </li>  
                         @endforeach

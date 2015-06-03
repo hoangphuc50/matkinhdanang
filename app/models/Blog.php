@@ -9,6 +9,6 @@ class Blog extends Eloquent {
 		return $this->belongsTo('User', 'user_id');
 	}
 	public function categories() {
-		$this->belongsToMany('Category', 'blog_category', 'blog_id', 'category_id');
+		return $this->belongsToMany('Category', 'blog_category', 'blog_id', 'category_id');
 	}
 }

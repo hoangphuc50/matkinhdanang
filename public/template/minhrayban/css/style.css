@@ -245,7 +245,7 @@ section.header {
 
 .menu-kinh .item {
     background: #fff;
-    padding: 15px 0;
+    padding: 5px 0;
     text-align: center;
     margin-bottom: 0px;
     height: 75px;
@@ -1229,6 +1229,8 @@ section.san-pham {
     width: 277px;
     border-radius: 10px;
     border-bottom: 3px solid #1f65ad;
+    cursor: pointer;
+    
 }
 .dat-hang-ngay .fa{
     font-size: 24px;
@@ -1351,4 +1353,30 @@ section.san-pham {
     width: 50px;
     text-align: center;
     border: 1px solid #ddd;
+}
+.cart-ship{
+    padding: 20px 0;
+}
+.ship-des{}
+.form-row{
+    padding-top: 15px;
+}
+.form-row label{
+    display: block;
+    font-family: "Open Sans Semibold", sans-serif;
+    font-weight: normal;
+}
+.form-row input,.form-row textarea{
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    color: #333;
+
+}
+.form-row textarea{
+    height: 288px;
+}
+.form-row{}
+.form-submit{
+    padding: 20px 0;
 }

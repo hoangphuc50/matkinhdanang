@@ -57,12 +57,16 @@ class CartController extends BaseController {
 		$quantity = Input::get('quantity');
 		$is_delete = Input::get('is_delete');
 
-		//Cart::instance('shopping')->update($id,array('name' => "sdfsdfdf"));
-		Cart::instance('shopping')->update($id,
+		if($is_delete == 1){
+			Cart::instance('shopping')->remove($id);
+		}else{
+			Cart::instance('shopping')->update($id,
 			array(
 					'qty' => $quantity
 				)
-		);
+			);
+		}
+
 		$data['cart'] = Cart::instance('shopping')->content();
 		return View::make('frontend.cart._update_cart',$data)->with('success_message', 'Giỏ hàng của bạn đã được cập nhật.');
 	}

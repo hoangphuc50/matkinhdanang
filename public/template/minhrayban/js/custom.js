@@ -87,10 +87,14 @@ $(document).ready(function() {
         // return false;
         $(".add-cart-form").submit();
     });
+    $("#dat_hang_ngay").click(function() {
+        $(".add-cart-form").submit();
+    });
+    
     $(document).on('click','.cart-update-qty .updatebtn',function(){
         var data = $(this).parent().parent().find("form").serialize();
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "/cart/update",
             data: data,
             success: function(respon) {
@@ -98,7 +102,21 @@ $(document).ready(function() {
             }
         });
         return false;
-    })
+    });
+    $(document).on('click','.cart-update-qty .deletebtn',function(){
+        var data = $(this).parent().parent().find("form").serialize() + '&is_delete=1';
+        $.ajax({
+            type: "POST",
+            url: "/cart/update",
+            data: data,
+            success: function(respon) {
+                $(".cart-index-content").html(respon);
+            }
+        });
+        return false;
+    });
+    
+
     /*
     $(".cart-update-qty .updatebtn").click(function() {
         var data = $(this).parent().parent().find("form").serialize();
