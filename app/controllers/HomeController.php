@@ -38,7 +38,18 @@ class HomeController extends BaseController {
 	}
 
 	public function displayProductCategoryPage($chuyen_muc){
-		$san_pham = $chuyen_muc->products()->paginate(15);
+		if(count($chuyen_muc->children) > 1){
+			$san_pham_ids = [];
+			foreach ($chuyen_muc->children as $row) {
+				foreach ($row->products as $_product) {
+					$san_pham_ids[] = $_product->id;
+				}
+			}
+			$san_pham = Product::whereIn('id',$san_pham_ids)->paginate(15);
+		}else{
+			$san_pham = $chuyen_muc->products()->paginate(15);
+		}
+		
 
 		$data['chuyen_muc'] = $chuyen_muc;
 		$data['san_pham'] = $san_pham;

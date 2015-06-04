@@ -45,7 +45,7 @@ class ManageBlogController extends \BaseController {
 	}
 
 	public function getAdd(){
-		$categories = Category::where('state','=',1)->orderBy('id','DESC')->lists('name','id');
+		$categories = Category::tree("menu");
 		return View::make('backend.blog.create_edit',compact('categories'));
 	}
 

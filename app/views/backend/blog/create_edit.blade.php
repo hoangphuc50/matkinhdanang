@@ -41,7 +41,7 @@
                 
                 <div class="box-body">
                     <div class="form-group {{{ $errors->has('title') ? 'has-error' : '' }}}">
-                        <label>Tên chuyên mục</label>
+                        <label>Tiêu đề</label>
                         {{Form::text('title',isset($blog) ? $blog->title : '', array('class' => 'form-control','placeholder' => 'Nhập tiêu đề cho bài viết'))}}
                         {{ $errors->first('title', '<span class="help-block">:message</span>') }}
                     </div>
@@ -63,12 +63,39 @@
                     </div>
                     <div class="form-group {{{ $errors->has('category_id') ? 'has-error' : '' }}}">
                         <label>Thuộc chuyên mục</label>
-                        <p class="help-block" style="text-align: center">Tất cả&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      >>    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Được chọn</p>
-                            @if(isset($blog))
-                                {{Form::select('category_id[]', $categories, $selected_categories, array('multiple','class'=>'multi-select'))}}
-                            @else
-                                {{Form::select('category_id[]', $categories,null, array('multiple','class'=>'multi-select'))}}
-                            @endif
+                            <select multiple="multiple" name="category_id" class="form-control category-select">
+                                <option value="" class="optionGroup">Không chọn</option>
+                                @if(isset($blog))
+                                    <?php
+                                        $category = BlogCategory::where('blog_id','=',$blog->id)->first();
+                                        if(empty($category)){
+                                            $category_id = "";
+                                        }else{
+                                            $category_id = $category->category_id;
+                                        }
+                                    ?>
+                                    @foreach($categories as $item)
+                                        <option value="{{$item->id}}" <?php if($category_id == $item->id) echo 'selected="selected"'?> class="optionGroup">{{$item->name}}</option>
+                                        @foreach($item['children'] as $child)
+                                            <option value="{{$child->id}}" <?php if($category_id == $child->id) echo 'selected="selected"'?> class="optionChild">{{$child->name}}</option>
+                                            @foreach($child['children'] as $child_2)
+                                                <option value="{{$child_2->id}}" <?php if($category_id == $child_2->id) echo 'selected="selected"'?> class="optionChild2">{{$child_2->name}}</option>
+                                            @endforeach
+                                        @endforeach
+                                    @endforeach
+                                @else
+                                    @foreach($categories as $item)
+                                        <option value="{{$item->id}}" class="optionGroup">{{$item->name}}</option>
+                                        @foreach($item['children'] as $child)
+                                            <option value="{{$child->id}}" class="optionChild">{{$child->name}}</option>
+                                            @foreach($child['children'] as $child_2)
+                                                <option value="{{$child_2->id}}" class="optionChild2">{{$child_2->name}}</option>
+                                            @endforeach
+                                        @endforeach
+                                    @endforeach
+                                @endif
+                                
+                            </select>
                           {{ $errors->first('category_id', '<span class="help-block">Bài viết phải thuộc ít nhất 1 chuyên mục. Vui lòng chọn chuyên mục.</span>') }}  
 
                     </div>
