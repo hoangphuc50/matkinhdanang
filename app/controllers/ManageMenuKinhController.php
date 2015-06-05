@@ -1,7 +1,10 @@
 <?php
 
 class ManageMenuKinhController extends \BaseController {
-
+	public function __construct()
+    {
+        $this->beforeFilter('auth', array('except'=>''));
+    }
 	public function getIndex()
 	{
 		//Declare query and params
@@ -51,7 +54,7 @@ class ManageMenuKinhController extends \BaseController {
 	public function postAdd(){
 		$rules = array(
 		    'name' => 'required',
-		    'image' => 'image',
+		    'image' => 'required|image',
 		    'order' => 'numeric'
 		);
 

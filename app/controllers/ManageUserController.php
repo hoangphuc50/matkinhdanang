@@ -1,8 +1,11 @@
 <?php
 
 class ManageUserController extends \BaseController {
-
-public function getIndex()
+	public function __construct()
+    {
+        $this->beforeFilter('auth', array('except'=>''));
+    }
+	public function getIndex()
 	{
 		//Declare query and params
 		$search = Input::get('search');
@@ -72,7 +75,7 @@ public function getIndex()
 			$user->name = Input::get('name');
 			$user->password = Hash::make(Input::get('password'));
 			$user->state = Input::get('state');
-			$user->user_type = 'manager';
+			$user->user_type = 'admin';
 			$user->save();
 
 			return Redirect::to('admin/users')->with('success_message', 'Đã tạo mới một người dùng');

@@ -13,7 +13,42 @@
 
 App::before(function($request)
 {
-	//
+	App::singleton('block_html', function(){
+		$block_html = [];
+		$all_blocks = BlockHtml::where('state','=',true)->get();
+		foreach ($all_blocks as $block) {
+		    switch ($block->position) {
+		        case "top_info":
+		            $block_html['top_info'] = $block->content;
+		            break;
+		        case "chu_chay":
+		            $block_html['chu_chay'] = $block->content;
+		            break;
+		        case "ho_tro_truc_tuyen":
+		            $block_html['ho_tro_truc_tuyen'] = $block->content;
+		            break;
+		        case "footer_info":
+		            $block_html['footer_info'] = $block->content;
+		            break;
+		        case "danh_cho_nguoi_mua":
+		            $block_html['danh_cho_nguoi_mua'] = $block->content;
+		            break;
+		        case "gioi_thieu":
+		            $block_html['gioi_thieu'] = $block->content;
+		            break; 
+		        case "copyright":
+		            $block_html['copyright'] = $block->content;
+		            break;  
+		        default:
+		            break;
+		    }
+		}
+		return $block_html;
+    });
+    // If you use this line of code then it'll be available in any view
+    // as $site_settings but you may also use app('site_settings') as well
+    View::share('block_html', app('block_html'));
+
 });
 
 

@@ -4,7 +4,7 @@ class AdminController extends \BaseController {
 	public function __construct()
     {
         $this->beforeFilter('auth', array('except'=>array('getLogin','postLogin')));
-        $this->beforeFilter('auth.admin', array('except'=>array('getLogin','postLogin')));
+        // $this->beforeFilter('auth.admin', array('except'=>array('getLogin','postLogin')));
     }
 
 	/**
@@ -46,7 +46,7 @@ class AdminController extends \BaseController {
 		} else {
 			if (Auth::attempt(array('email'=>Input::get('email'), 'password'=>Input::get('password')),$remember = Input::get('remember') )) {		    		    
 			    // Check if active account
-			    if(Auth::user()->state != 1 or Auth::user()->user_type != "admin"){
+			    if(Auth::user()->state != 1){
 			    	Auth::logout();
 			    	return Redirect::to('admin/login')
 				        ->with('error_message', 'Your account was disabled')

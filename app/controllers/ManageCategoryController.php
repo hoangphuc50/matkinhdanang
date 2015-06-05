@@ -1,7 +1,10 @@
 <?php
 
 class ManageCategoryController extends \BaseController {
-
+	public function __construct()
+    {
+        $this->beforeFilter('auth', array('except'=>''));
+    }
 	public function getIndex()
 	{
 		//Declare query and params

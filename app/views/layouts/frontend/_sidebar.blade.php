@@ -29,12 +29,6 @@
     @endforeach
     <div class="thong-ke">
         <h2>Hổ trợ trực tuyến</h2>
-        <div class="thong-ke-content">
-            <div class="hot-line">
-                <p>Hotline</p>
-                <span>0907 72 75 99</span>
-            </div>
-            <a class="hot-face" href="">Kết nối Facebook</a>
-        </div>
+        {{app('block_html')['ho_tro_truc_tuyen']}}
     </div>
 </div>

@@ -169,7 +169,60 @@
                     <div class="form-group {{{ $errors->has('feature') ? 'has-error' : '' }}}">
                         <label>Đặc trưng sản phẩm</label>
                         <?php
-                            $feature = '';
+                            $feature = '<table class="format_table" style="border-collapse:collapse; border-spacing:0px; color:rgb(68, 68, 68) !important; font-family:segoe ui,tahoma,arial,helvetica,sans-serif !important; font-size:15px !important; line-height:20px; margin-bottom:10px !important; margin-top:10px !important; max-width:100%; width:852px">
+                                <tbody>
+                                    <tr>
+                                        <td style="vertical-align:text-top !important; width:120px !important">&nbsp;Loại sản phẩm</td>
+                                        <td style="vertical-align:text-top !important; width:15px">:</td>
+                                        <td style="text-align:justify !important; vertical-align:text-top !important">Kính mắt</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:text-top !important; width:120px !important">&nbsp;Nhãn hiệu</td>
+                                        <td style="vertical-align:text-top !important; width:15px">:</td>
+                                        <td style="text-align:justify !important; vertical-align:text-top !important">Thương hiệu nổi tiếng nước Ý&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:text-top !important; width:120px !important">&nbsp;Model</td>
+                                        <td style="vertical-align:text-top !important; width:15px">:</td>
+                                        <td style="text-align:justify !important; vertical-align:text-top !important">RB01</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:text-top !important; width:120px !important">&nbsp;Đối tượng</td>
+                                        <td style="vertical-align:text-top !important; width:15px">:</td>
+                                        <td style="text-align:justify !important; vertical-align:text-top !important">Nam, Nữ</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:text-top !important; width:120px !important">&nbsp;Chất liệu</td>
+                                        <td style="vertical-align:text-top !important; width:15px">:</td>
+                                        <td style="text-align:justify !important; vertical-align:text-top !important">Mắt kính tráng gương cao cấp chống xước tốt. Gọng kim loại mạ vàng bọc inon sáng bóng.</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:text-top !important; width:120px !important">&nbsp;Màu gọng kính</td>
+                                        <td style="vertical-align:text-top !important; width:15px">:</td>
+                                        <td style="text-align:justify !important; vertical-align:text-top !important">Màu vàng sang trọng bọc mắt kính phản chiếu bền đẹp</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:text-top !important; width:120px !important">&nbsp;Màu mắt kính</td>
+                                        <td style="vertical-align:text-top !important; width:15px">:</td>
+                                        <td style="text-align:justify !important; vertical-align:text-top !important">Xanh lá, Xanh lam, Da cam</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:text-top !important; width:120px !important">&nbsp;Thiết kế</td>
+                                        <td style="vertical-align:text-top !important; width:15px">:</td>
+                                        <td style="text-align:justify !important; vertical-align:text-top !important">Mới lạ, độc đáo, thời trang, và sang trọng</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:text-top !important; width:120px !important">&nbsp;Kiểu dáng</td>
+                                        <td style="vertical-align:text-top !important; width:15px">:</td>
+                                        <td style="text-align:justify !important; vertical-align:text-top !important">Mắt kính aviator thời trang ôm sát khôn mặt</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:text-top !important; width:120px !important">&nbsp;Sản phẩm gồm</td>
+                                        <td style="vertical-align:text-top !important; width:15px">:</td>
+                                        <td style="text-align:justify !important; vertical-align:text-top !important">01 Kính mắt thời trang cao cấp RB01 + 01 hộp đựng sản phẩm + bộ phụ kiện</td>
+                                    </tr>
+                                </tbody>
+                            </table>';
                             if(isset($product)){
                                 $feature = $product->feature;
                             }

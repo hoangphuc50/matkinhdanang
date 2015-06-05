@@ -29,7 +29,6 @@ Route::controller('admin/blogs', 'ManageBlogController');
 Route::controller('admin/products', 'ManageProductController');
 Route::controller('admin/categories', 'ManageCategoryController');
 Route::controller('admin/producers', 'ManageProducerController');
-Route::controller('admin/blocks', 'ManageBlockController');
 Route::controller('admin/orders', 'ManageOrderController');
 Route::controller('admin/block_htmls', 'ManageBlockHtmlController');
 Route::controller('admin/menu_kinhs', 'ManageMenuKinhController');

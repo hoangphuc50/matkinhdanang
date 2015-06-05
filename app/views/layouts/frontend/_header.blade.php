@@ -1,19 +1,4 @@
-<section class="top-menu">
-        <div class="container">
-            <div class="row">
-            <div class="col-md-3 text-left">
-                <a href="#">
-                <i class="fa fa-facebook"></i> Kết nối mạng xã hội
-                </a>
-            </div>
-            <div class="col-md-6 text-center">
-                <i class="fa fa-truck"></i> <b>Miễn phí </b>vận chuyển trong nội thành Hồ Chí Minh & toàn quốc
-            </div>
-            <div class="col-md-3 text-right">
-                <i class="fa fa-phone"></i> (+84)907 72 75 99</div>
-            </div>
-        </div>
-    </section>
+{{app('block_html')['top_info']}}
     <section class="header">
         <div class="container">
             <div class="row">

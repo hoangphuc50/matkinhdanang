@@ -4,7 +4,6 @@ class ManageProductController extends \BaseController {
 	public function __construct()
     {
     	$this->beforeFilter('auth', array('except'=>array('')));
-        $this->beforeFilter('auth.admin', array('except'=>array('')));
     }
 	public function getIndex()
 	{
