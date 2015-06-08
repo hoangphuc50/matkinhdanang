@@ -71,4 +71,76 @@ class CartController extends BaseController {
 		return View::make('frontend.cart._update_cart',$data)->with('success_message', 'Giỏ hàng của bạn đã được cập nhật.');
 	}
 
+	public function saveCart(){
+		$rules = array(
+		    'name' => 'required|max:100',
+		    'email' => 'required|email|max:100',
+		    'phone' => 'required:max:10',
+		    'ship_address' => 'required|max:200',
+		    'description' => 'max:1000',
+		);
+		$validate_messages = array(
+			'name.required' => "Vui lòng nhập họ và tên của bạn",
+			'name.max' => "Dữ liệu bạn nhập không đúng, tên quá dài",
+			'phone.required' => "Vui lòng nhập điện thoại của bạn",
+			'phone.max' => "Dữ liệu bạn nhập không đúng, số điện thoại quá dài",
+			'ship_address.required' => "Vui lòng nhập địa chỉ giao hàng",
+			'ship_address.max' => "Dữ liệu bạn nhập không đúng, địa chỉ quá dài",
+			'email.required' => "Vui lòng nhập email của bạn",
+			'email.email' => "Định dạng email phải là name@example.com",
+			);
+
+		$validator = Validator::make(Input::all(), $rules,$validate_messages);
+
+		if ($validator->fails()) {
+		    return Redirect::to('cart')
+		        ->withErrors($validator)
+		        ->withInput();
+		} 
+		else {
+
+			$order = new Order;
+			$order->name = Input::get('name');
+			$order->email = Input::get('email');
+			$order->phone = Input::get('phone');
+			$order->description = Input::get('description');
+			$order->ship_address = Input::get('ship_address');
+
+			$cart = Cart::instance('shopping')->content();
+			$product_ids = '';
+			$product_names = '';
+			$order->product_ids = $product_ids;
+			$order->product_names = $product_names;
+			$order->state = 0;
+			$order->highlight = 0;
+			$order->total_price = Input::get('highlight');
+
+			foreach($cart as $row){
+				$product_ids = $product_ids.$row->id;
+				$product_names = $product_names.$row->name;		
+			}
+			$order->save();
+
+			foreach($cart as $row){
+				$product_order = new ProductOrder;
+				$product_order->order_id = $order->id;
+				$product_order->product_id = $row->id;
+				$product_order->number = $row->qty;
+				$product_order->save();
+			}
+
+			$data['cart'] = Cart::instance('shopping')->content();
+			$data['cart_total'] = Cart::instance('shopping')->total();
+			$data['order'] = $order;
+
+			//Destroy cart
+			Cart::instance('shopping')->destroy();
+
+			return View::make('frontend.cart.done',$data)
+						->with('success_message', 'Đơn hàng của bạn đã được gửi đến MinhRayBan, 
+						chúng tôi sẽ kiểm tra đơn hàng và gọi lại cho bạn trong thời gian sớm nhất.
+						 Để xem lại đơn hàng vui lòng kiểm tra email của mình.');
+		}
+	}
+
 }

@@ -8,6 +8,6 @@ class Order extends Eloquent {
 	}
 
 	public function products() {
-		$this->belongsToMany('Product', 'product_order', 'product_id', 'order_id');
+		return $this->belongsToMany('Product', 'product_order', 'product_id', 'order_id');
 	}
 }

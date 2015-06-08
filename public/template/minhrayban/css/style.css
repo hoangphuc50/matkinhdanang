@@ -1311,7 +1311,6 @@ section.san-pham {
     font-size: 16px;
     font-family: "Open Sans Semibold", sans-serif;
     padding: 15px 0;
-    background: #eee;
     text-align: right;
     padding-right: 30px;
 }
@@ -1379,4 +1378,24 @@ section.san-pham {
 .form-row{}
 .form-submit{
     padding: 20px 0;
+}
+.order-submit{
+    border: none;
+}
+.order-title{
+    color: #333;
+    font-size: 16px;
+    font-family: "Open Sans Semibold", sans-serif;
+    padding: 15px 0;
+    background: #eee;
+    text-align: left;
+    padding-left: 30px;
+    margin: 20px 0 10px 0;
+}
+.help-block{
+    color: red  !important;
+    font-size: 13px;
+}
+.has-error input,.has-error textarea{
+    border-color: red;
 }

@@ -22,7 +22,7 @@ Route::post('cart/add', 'CartController@addCart');
 Route::get('cart', 'CartController@displayIndexPage');
 Route::get('cart/destroy', 'CartController@deleteCart');
 Route::post('cart/update', 'CartController@updateCart');
-
+Route::post('cart/save', 'CartController@saveCart');
 
 Route::controller('admin/users', 'ManageUserController');
 Route::controller('admin/blogs', 'ManageBlogController');
