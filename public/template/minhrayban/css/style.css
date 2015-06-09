@@ -55,7 +55,8 @@ p {
 .input-submit,
 .mua-hang,
 .cart .wrap-btn a,
-.add-cart,.dat-hang-ngay,.price{
+.add-cart,.dat-hang-ngay,.price,
+.blog-item h3{
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -1398,4 +1399,12 @@ section.san-pham {
 }
 .has-error input,.has-error textarea{
     border-color: red;
+}
+.blog-item h3{
+    font-size: 16px;
+    color:#555;
+}
+.blog-item h3:hover{
+    text-decoration: underline;
+    color: red;
 }

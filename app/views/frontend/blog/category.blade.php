@@ -21,16 +21,12 @@
         <h2 class="title-2">
             {{$chuyen_muc->name}}
         </h2>
-        <div class="row san-pham-noi-bat">
+        <div class=" san-pham-noi-bat">
             @foreach($bai_viet as $sp1)
-            <div class="col-md-6 col-sm-6 ">
-                <div class="product-item">
-                    <a href="{{URL::to('bai-viet/'.$sp1->id)}}">
-                        {{HTML::image(!empty($sp1->image) ? blogImageFolder().$sp1->image : "/images/no_image.jpg",$sp1->title)}}
-                        <h3>{{$sp1->title}} </h3>
-                        
-                    </a>
-                </div>
+            <div class="blog-item">
+                <a href="{{URL::to('bai-viet/'.$sp1->id)}}">
+                    <h3>{{$sp1->title}} </h3>      
+                </a>
             </div>
             @endforeach
             

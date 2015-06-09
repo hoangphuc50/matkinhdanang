@@ -90,7 +90,7 @@
                                        {{$product->product_id}}
 
                                     </td>
-                                    <td><a href="/admin/products/detail/{{$product->id}}">{{$product->name}}</a>
+                                    <td><a href="/admin/products/edit/{{$product->id}}">{{$product->name}}</a>
                                     </td>
                                     <td><span class="price">{{$product->price}} đ</span> <span class="old-price">{{$product->old_price}} đ</span>
                                     </td>

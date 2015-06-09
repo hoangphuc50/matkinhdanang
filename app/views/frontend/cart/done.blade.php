@@ -9,12 +9,12 @@
                     <a href="#">Trang chủ</a>
                 </li>
                 <li>
-                   <a href="#">Giỏ hàng</a>
+                   <a href="#">Đặt hàng thành công</a>
                     
                 </li>
             </ul>
         </div>
-        <h2 class="title-2">Giỏ hàng
+        <h2 class="title-2">Đơn hàng của bạn
         </h2>
         <div class="cart-index-content">
             @if (Session::has('error_message'))

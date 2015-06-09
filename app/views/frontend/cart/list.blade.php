@@ -18,7 +18,7 @@
                         <tr>
                             <td class="product-name">{{$row->name}}</td>
                             <td class="product-qty">{{$row->qty}}</td>
-                            <td class="product-total-price">{{$row->price}} đ</td>
+                            <td class="product-total-price">{{displayPrice($row->price)}} đ</td>
                         </tr>
                     </tbody>
                     @endforeach
@@ -26,7 +26,7 @@
             </div>
 
             <div class="shopping-cart-total">
-                <p class="total">Tổng cộng: {{Cart::instance('shopping')->total();}} đ</p>
+                <p class="total">Tổng cộng: {{displayPrice(Cart::instance('shopping')->total())}} đ</p>
                 <div class="wrap-btn">
                     <a href="/cart" class="btn">Đặt hàng ngay</a>
                     <a href="/cart/destroy" class="btn" style="background:#F4A137">Hủy giỏ hàng</a>
@@ -36,7 +36,7 @@
     </div>
     <div class="tong-cong  pull-left">
         <h2>Tổng cộng</h2>
-        <h3>{{Cart::instance('shopping')->total();}} đ</h3>
+        <h3>{{displayPrice(Cart::instance('shopping')->total())}} đ</h3>
     </div>
 @else
     <div class="cart pull-left">

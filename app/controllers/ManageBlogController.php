@@ -83,14 +83,12 @@ class ManageBlogController extends \BaseController {
 			$blog->save();
 
 			//save blog category
-			$category_ids = array_filter(Input::get('category_id'));
-			if(count($category_ids)>0){
-				foreach($category_ids as $category_id){
-					$blog_category = new BlogCategory;
-					$blog_category->blog_id = $blog->id;
-					$blog_category->category_id = $category_id;
-					$blog_category->save();
-				}
+			$category_id = Input::get('category_id');
+			if(!empty($category_id)){
+				$blog_category = new BlogCategory;
+				$blog_category->blog_id = $blog->id;
+				$blog_category->category_id = $category_id;
+				$blog_category->save();
 			}
 			return Redirect::to('admin/blogs')->with('success_message', 'Đã tạo mới một bài viết');
 		}

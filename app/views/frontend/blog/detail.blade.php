@@ -16,9 +16,9 @@
             </ul>
         </div>
         <div class="intro-panel blog-detail">
-            <h1>
+            <h2 class="title-2">
                 {{$bai_viet->title}}
-            </h1>
+            </h2>
             {{$bai_viet->content}}
         </div>
     </div>

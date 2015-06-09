@@ -17,8 +17,8 @@ class HomeController extends BaseController {
 
 	public function displayIndexPage()
 	{
-		$san_pham_khuyen_mai = Product::where('state','=',true)->where('old_price','>',0)->orderBy('id','DESC')->take(3)->get();
-		$data['san_pham_moi'] = Product::where('state','=',1)->whereNotIn('id',$san_pham_khuyen_mai->lists('id'))->orderBy('id','DESC')->take(12)->get();
+		$san_pham_khuyen_mai = Product::where('state','=',true)->with('categories')->where('old_price','>',0)->orderBy('id','DESC')->take(3)->get();
+		$data['san_pham_moi'] = Product::where('state','=',1)->with('categories')->whereNotIn('id',$san_pham_khuyen_mai->lists('id'))->orderBy('id','DESC')->take(12)->get();
 		$data['san_pham_khuyen_mai'] = $san_pham_khuyen_mai;
 		return View::make('frontend.index',$data);
 	}
@@ -69,7 +69,18 @@ class HomeController extends BaseController {
 		$bai_viet_ = $chuyen_muc->blogs()->get();
 		$bai_viet = $chuyen_muc->blogs()->paginate(15);
 
-		if(count($bai_viet) < 2){
+		$chuyen_muc_ = $chuyen_muc->children()->get();		
+		if(count($bai_viet) == 0 and count($chuyen_muc_) > 0){
+			$bai_viet_ids = [];
+			foreach ($chuyen_muc_ as $row) {
+				foreach ($row->blogs as $child_row) {
+					$bai_viet_ids[] = $child_row->id;
+				}
+			}
+			$bai_viet = Blog::where('state','=',1)->whereIn('id',$bai_viet_ids)->paginate(15);
+		}
+
+		if(count($bai_viet) == 1){
 			$id = '';
 			foreach ($bai_viet as $row) {
 				$id = $row->id;
