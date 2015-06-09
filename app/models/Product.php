@@ -11,6 +11,10 @@ class Product extends Eloquent {
 		return $this->belongsTo('User','user_id');
 	}
 
+	public function order() {
+		return $this->hasMany('ProductOrder','product_id','id');
+	}
+
 	public function categories() {
 		return $this->belongsToMany('Category', 'product_category', 'product_id', 'category_id');
 	}

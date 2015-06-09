@@ -69,33 +69,33 @@ class ManageBlockHtmlController extends \BaseController {
 		} 
 		else {
 
-			$block_html = new BlockHtml;
-			$block_html->name = Input::get('name');
-			$block_html->link = Input::get('link');
-			$block_html->order = Input::get('order');
-			$block_html->position = Input::get('position');
-			$block_html->state = Input::get('state');
-			$block_html->highlight = Input::get('highlight');
-			$block_html->content = Input::get('content');
+			$block_html_ = new BlockHtml;
+			$block_html_->name = Input::get('name');
+			$block_html_->link = Input::get('link');
+			$block_html_->order = Input::get('order');
+			$block_html_->position = Input::get('position');
+			$block_html_->state = Input::get('state');
+			$block_html_->highlight = Input::get('highlight');
+			$block_html_->content = Input::get('content');
 
 			if(Input::hasFile('image')){
-				$block_html->image = uploadPhoto('uploads/block_html',Input::file('image'),800);
+				$block_html_->image = uploadPhoto('uploads/block_html',Input::file('image'),800);
 			}
 			
-			$block_html->save();
+			$block_html_->save();
 
 			return Redirect::to('admin/block_htmls')->with('success_message', 'Đã tạo mới một block');
 		}
 	}
 
 	public function getEdit($id){
-		$block_html = BlockHtml::find($id);
-		if(empty($block_html)){return Redirect::to('admin/block_htmls')->with('error_message', 'Dữ liệu không tồn tại');}
-		return View::make('backend.block_html.create_edit',compact('block_html'));
+		$block_html_ = BlockHtml::find($id);
+		if(empty($block_html_)){return Redirect::to('admin/block_htmls')->with('error_message', 'Dữ liệu không tồn tại');}
+		return View::make('backend.block_html.create_edit',compact('block_html_'));
 	}
 
 	public function postEdit(){
-		$block_html = BlockHtml::find(Input::get('id'));
+		$block_html_ = BlockHtml::find(Input::get('id'));
 
 		$rules = array(
 		    'name' => 'required',
@@ -105,29 +105,29 @@ class ManageBlockHtmlController extends \BaseController {
 		$validator = Validator::make(Input::all(), $rules);
 
 		if ($validator->fails()) {
-		    return Redirect::to('admin/block_htmls/edit/'.$block_html->id)
+		    return Redirect::to('admin/block_htmls/edit/'.$block_html_->id)
 		        ->withErrors($validator)
 		        ->withInput();
 		} 
 		else {
-			$block_html->name = Input::get('name');
-			$block_html->link = Input::get('link');
-			$block_html->order = Input::get('order');
-			$block_html->position = Input::get('position');
-			$block_html->state = Input::get('state');
-			$block_html->highlight = Input::get('highlight');
-			$block_html->content = Input::get('content');
+			$block_html_->name = Input::get('name');
+			$block_html_->link = Input::get('link');
+			$block_html_->order = Input::get('order');
+			$block_html_->position = Input::get('position');
+			$block_html_->state = Input::get('state');
+			$block_html_->highlight = Input::get('highlight');
+			$block_html_->content = Input::get('content');
 
 			//Check delete image
 			if(Input::hasFile('image')){
-				if(!empty($block_html->image))
+				if(!empty($block_html_->image))
 				{
-					File::delete(blockImageFolder().$block_html->image);
+					File::delete(blockImageFolder().$block_html_->image);
 				}
-				$block_html->image = uploadPhoto('uploads/block_html',Input::file('image'),800);
+				$block_html_->image = uploadPhoto('uploads/block_html',Input::file('image'),800);
 			}
 
-			$block_html->save();
+			$block_html_->save();
 
 			return Redirect::to('admin/block_htmls')->with('success_message', 'Thông tin danh mục đã được thay đổi');
 		}
@@ -142,11 +142,11 @@ class ManageBlockHtmlController extends \BaseController {
 	public function getDelete($id){
 		$block_html = BlockHtml::find($id);
 		if(empty($block_html)){return Redirect::to('admin/block_htmls')->with('error_message', 'Dữ liệu không tồn tại');}
-		if(!empty($block_html->image))
+		if(!empty($block_html_->image))
 		{
-			File::delete(blockImageFolder().$block_html->image);
+			File::delete(blockImageFolder().$block_html_->image);
 		}
-		$block_html->delete();
+		$block_html_->delete();
 		return Redirect::to('admin/block_htmls')->with('success_message', 'Dữ liệu đã được xóa.');
 	}
 

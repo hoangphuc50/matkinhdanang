@@ -14,7 +14,7 @@ class UpdateOrder extends Migration {
 	{
 		Schema::table('product_order', function(Blueprint $table)
 		{
-			$table->integer('')->nullable();
+			$table->integer('number')->nullable();
 		});
 
 		Schema::table('orders', function(Blueprint $table)

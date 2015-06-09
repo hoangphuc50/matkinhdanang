@@ -7,7 +7,7 @@
 
     <section class="content-header">
     <h1>Quản lí block html
-        @if(isset($block_html))
+        @if(isset($block_html_))
             <small>Chỉnh sửa thông tin</small>
         @else
             <small>Thêm mới</small>
@@ -32,9 +32,9 @@
                 @endif
                 <!-- /.box-header -->
                 <!-- form start -->
-                @if(isset($block_html))
-                    {{ Form::model($block_html, array('url'=>'admin/block_htmls/edit','method' => 'POST', 'class'=>'form-horizontal','files'=>true))}}
-                    {{Form::hidden('id', $block_html->id);}}
+                @if(isset($block_html_))
+                    {{ Form::model($block_html_, array('url'=>'admin/block_htmls/edit','method' => 'POST', 'class'=>'form-horizontal','files'=>true))}}
+                    {{Form::hidden('id', $block_html_->id);}}
                 @else
                     {{Form::open(array('url' => URL::to('/admin/block_htmls/add'),'method' => 'POST','files' => true))}}
                 @endif
@@ -42,15 +42,15 @@
                 <div class="box-body">
                     <div class="form-group {{{ $errors->has('name') ? 'has-error' : '' }}}">
                         <label>Tên block</label>
-                        {{Form::text('name',isset($block_html) ? $block_html->name : '', array('class' => 'form-control','placeholder' => 'Tên block'))}}
+                        {{Form::text('name',isset($block_html_) ? $block_html_->name : '', array('class' => 'form-control','placeholder' => 'Tên block'))}}
                         {{ $errors->first('name', '<span class="help-block">:message</span>') }}
                     </div>
                     <div class="form-group {{{ $errors->has('image') ? 'has-error' : '' }}}">
                         <label>Hình đại diện</label>
-                        @if(empty($block_html->image))
+                        @if(empty($block_html_->image))
                             {{HTML::image('images/no_image.jpg','',array('class'=>'no-image'))}}
                         @else
-                            {{HTML::image($block_html->image,'')}}
+                            {{HTML::image($block_html_->image,'')}}
                         @endif
                         
                         {{ Form::file('image','',array('id'=>'','class'=>'')) }}
@@ -59,25 +59,25 @@
 
                     <div class="form-group {{{ $errors->has('link') ? 'has-error' : '' }}}">
                         <label>Link</label>
-                        {{Form::text('link',isset($block_html) ? $block_html->link : '', array('class' => 'form-control','placeholder' => 'Link khi click vô menu'))}}
+                        {{Form::text('link',isset($block_html_) ? $block_html_->link : '', array('class' => 'form-control','placeholder' => 'Link khi click vô menu'))}}
                         {{ $errors->first('link', '<span class="help-block">:message</span>') }}
                     </div>
 
                     <div class="form-group {{{ $errors->has('position') ? 'has-error' : '' }}}">
                         <label>Vị trí</label>
-                        {{Form::text('position',isset($block_html) ? $block_html->position : '', array('class' => 'form-control','placeholder' => 'Vị trí hiển thị của block'))}}
+                        {{Form::text('position',isset($block_html_) ? $block_html_->position : '', array('class' => 'form-control','placeholder' => 'Vị trí hiển thị của block'))}}
                         {{ $errors->first('position', '<span class="help-block">:message</span>') }}
                     </div>
 
 
                     <div class="form-group {{{ $errors->has('content') ? 'has-error' : '' }}}">
                         <label>Nội dung</label>
-                        {{Form::textarea('content',isset($block_html) ? $block_html->content : '', array('id'=>'', 'class' => 'form-control use_editor','placeholder' => 'Giới thiệu'))}}
+                        {{Form::textarea('content',isset($block_html_) ? $block_html_->content : '', array('id'=>'', 'class' => 'form-control use_editor','placeholder' => 'Giới thiệu'))}}
                         {{ $errors->first('content', '<span class="help-block">:message</span>') }}
                     </div>
                     <div class="form-group {{{ $errors->has('order') ? 'has-error' : '' }}}">
                         <label>Thứ tự sắp xếp (nếu có)</label>
-                        {{Form::text('order',isset($block_html) ? $block_html->order : '', array('class' => 'form-control','placeholder' => 'Thứ tự sắp xếp'))}}
+                        {{Form::text('order',isset($block_html_) ? $block_html_->order : '', array('class' => 'form-control','placeholder' => 'Thứ tự sắp xếp'))}}
                         {{ $errors->first('order', '<span class="help-block">:message</span>') }}
                     </div>
 

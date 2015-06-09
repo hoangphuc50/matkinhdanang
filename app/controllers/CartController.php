@@ -109,16 +109,17 @@ class CartController extends BaseController {
 			$cart = Cart::instance('shopping')->content();
 			$product_ids = '';
 			$product_names = '';
-			$order->product_ids = $product_ids;
-			$order->product_names = $product_names;
-			$order->state = 0;
-			$order->highlight = 0;
-			$order->total_price = Input::get('highlight');
-
+			
 			foreach($cart as $row){
 				$product_ids = $product_ids.$row->id;
 				$product_names = $product_names.$row->name;		
 			}
+			$order->product_ids = $product_ids;
+			$order->product_names = $product_names;
+			$order->state = 0;
+			$order->highlight = 0;
+			$order->total_price = Cart::instance('shopping')->total();
+
 			$order->save();
 
 			foreach($cart as $row){
@@ -133,11 +134,16 @@ class CartController extends BaseController {
 			$data['cart_total'] = Cart::instance('shopping')->total();
 			$data['order'] = $order;
 
+			//Send email
+			Mail::send('mail.order', $data, function($message) {
+				$message->to(Input::get('email'),Input::get('name'))->subject('Thông báo đặt hàng thành công từ mắt kính MinhRayBan');
+			});
+
 			//Destroy cart
 			Cart::instance('shopping')->destroy();
 
 			return View::make('frontend.cart.done',$data)
-						->with('success_message', 'Đơn hàng của bạn đã được gửi đến MinhRayBan, 
+						->with('success_message', 'Đơn hàng của bạn đã được gửi đến hệ thống MinhRayBan, 
 						chúng tôi sẽ kiểm tra đơn hàng và gọi lại cho bạn trong thời gian sớm nhất.
 						 Để xem lại đơn hàng vui lòng kiểm tra email của mình.');
 		}
