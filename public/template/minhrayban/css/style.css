@@ -56,7 +56,8 @@ p {
 .mua-hang,
 .cart .wrap-btn a,
 .add-cart,.dat-hang-ngay,.price,
-.blog-item h3{
+.blog-item h3,
+.menu-kinh .item{
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -253,8 +254,8 @@ section.header {
     cursor: pointer;
 }
 
-.menu-kinh .item:hover {
-    background: #eee;
+.menu-kinh .item:hover h3{
+   color: red;
 }
 
 .menu-kinh .item h3 {
@@ -263,7 +264,7 @@ section.header {
     margin-top: 5px;
     font-family: "Open Sans Bold", sans-serif;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
 }
 
 .main {
@@ -418,9 +419,9 @@ h2.title {
     font-family: "Open Sans Semibold", sans-serif;
 }
 
-.product-item h3:hover,
-.tin-tuc-moi h2:hover {
-    color: #1f65ad;
+.product-item:hover h3,
+.tin-tuc-moi:hover h2 {
+    color: red;
 }
 
 .product-item:hover p.price,
@@ -1407,4 +1408,8 @@ section.san-pham {
 .blog-item h3:hover{
     text-decoration: underline;
     color: red;
+}
+.border-line{
+    border-bottom: 1px solid #ddd;
+    margin: 15px 0;
 }

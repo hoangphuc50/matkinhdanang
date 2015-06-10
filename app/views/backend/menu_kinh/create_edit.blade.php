@@ -50,7 +50,7 @@
                         @if(empty($menu_kinh->image))
                             {{HTML::image('images/no_image.jpg','',array('class'=>'no-image'))}}
                         @else
-                            {{HTML::image($menu_kinh->image,'')}}
+                            {{HTML::image(kinhImageFolder().$menu_kinh->image,'')}}
                         @endif
                         
                         {{ Form::file('image','',array('id'=>'','class'=>'')) }}
@@ -88,11 +88,11 @@
                         <br>
                         <div class="form-radio">
                             <label>
-                                {{Form::radio('highlight',true,true,array())}}
+                                {{Form::radio('highlight',true,false,array())}}
                                 Có&nbsp;&nbsp;&nbsp;
                             </label>
                             <label>
-                                {{Form::radio('highlight',false,false,array())}}
+                                {{Form::radio('highlight',false,true,array())}}
                                 Không
                             </label>  
                         </div>               

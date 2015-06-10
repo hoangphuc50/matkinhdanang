@@ -95,7 +95,7 @@
                             <div class="form-group {{{ $errors->has('old_price') ? 'has-error' : '' }}}">
                                 <label>Giá cũ</label>
                                 {{Form::text('old_price',isset($product) ? $product->old_price : '', array('class' => 'form-control','placeholder' => 'Nhập giá cũ cho sản phẩm'))}}
-                                {{ $errors->first('ũ', '<span class="help-block">:message</span>') }}
+                                {{ $errors->first('old_price', '<span class="help-block">:message</span>') }}
                             </div>
                             <div class="form-group">
                                 <label>Hiển thị giá</label>

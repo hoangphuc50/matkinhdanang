@@ -59,4 +59,15 @@ class ManageOrderController extends \BaseController {
 		return View::make('backend.order.detail',compact('order'));
 	}
 
+	public function getDelete($id){
+		$order = Order::find($id);
+		if(empty($order)){return Redirect::to('admin/orders')->with('error_message', 'Dữ liệu không tồn tại');}
+		$order->delete();
+
+		$product_order = ProductOrder::where('order_id','=',$id);
+		$product_order->delete();
+
+		return Redirect::to('admin/orders')->with('success_message', 'Dữ liệu đã được xóa.');
+	}
+
 }

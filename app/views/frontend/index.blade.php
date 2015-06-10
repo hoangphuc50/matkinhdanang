@@ -28,6 +28,7 @@
             @endforeach
             
         </div>
+        <div class="border-line"></div>
         <h2 class="title-2">Sản phẩm <span>Mới nhất</span>
         </h2>
         <div class="row san-pham-noi-bat">

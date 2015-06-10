@@ -3,7 +3,10 @@
         padding-left: 10px;
     }
     .product-item img{
-        height: 205px;
+        height: 230px;
+    }
+    .product-item{
+        height: 375px;
     }
 }
 
