@@ -265,6 +265,7 @@ section.header {
     font-family: "Open Sans Bold", sans-serif;
     text-transform: uppercase;
     margin-bottom: 0px;
+    white-space: nowrap;
 }
 
 .main {
@@ -1191,6 +1192,7 @@ section.san-pham {
 
 .product-images a{
     display: inline-block;
+    margin-bottom: 10px;
 }
 .content-title{
     font-size: 18px;
@@ -1411,5 +1413,5 @@ section.san-pham {
 }
 .border-line{
     border-bottom: 1px solid #ddd;
-    margin: 15px 0;
+    margin-bottom: 15px;
 }

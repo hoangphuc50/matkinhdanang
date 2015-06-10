@@ -14,10 +14,10 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Blank</title>
-    <meta name="description" content="HTML Blank" />
-    <meta name="keywords" content="HTML Blank" />
-    <meta name="author" content="Codrops" />
+    <title>Mắt Kính Minh Rayban – Mắt Kính Thời Trang Nam Nữ</title>
+    <meta name="description" content="Mắt Kính Minh Rayban – Mắt Kính Thời Trang Nam Nữ" />
+    <meta name="keywords" content="Mắt Kính Minh Rayban – Mắt Kính Thời Trang Nam Nữ" />
+    <meta name="author" content="Mắt Kính Minh Rayban – Mắt Kính Thời Trang Nam Nữ" />
     <link rel="shortcut icon" href="../favicon.ico">
     {{HTML::style('template/minhrayban/css/bootstrap.min.css')}}
     {{HTML::style('template/minhrayban/css/font-awesome.min.css')}}

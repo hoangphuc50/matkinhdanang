@@ -56,7 +56,14 @@
                     </a>
                 </td>
                 <td>
-                    <b>{{$row->qty}}</b>
+                    <div class="cart-update-qty">
+                        <form action="{{URL::to('cart/update')}}" method="POST" style="display: inline;">
+                            <a class="deletebtn" title="Xóa sản phẩm khỏi giỏ hàng"> </a>
+                            <input type="text" title="Cập nhật số lượng trong giỏ hàng" class="inputbox_update" name="quantity" value="{{$row->qty}}">
+                            <a class="updatebtn" title="Cập nhật số lượng trong giỏ hàng" ></a>
+                            {{Form::hidden('id', $row->rowid)}}       
+                        </form>
+                    </div>
                 </td>
                 <td class="cart-price">{{displayPrice($row->subtotal)}} đ</td>
                 </tr>
