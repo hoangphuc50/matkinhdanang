@@ -10,7 +10,7 @@
                 </li>
                 @foreach($bai_viet->categories()->get() as $category)
                 <li>
-                   <a href="#">{{$category->name}}</a> 
+                   <a href="{{URL::to('danh-muc/'.$category->alias)}}">{{$category->name}}</a> 
                 </li>
                 @endforeach
             </ul>

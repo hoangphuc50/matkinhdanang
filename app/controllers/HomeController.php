@@ -25,7 +25,8 @@ class HomeController extends BaseController {
 
 	public function displayCategoryPage($id)
 	{
-		$chuyen_muc = Category::find($id);
+		//$chuyen_muc = Category::find($id);
+		$chuyen_muc = Category::findBySlug($id);
 		if(empty($chuyen_muc)){ return View::make('frontend.errors.404'); }
 		if(!empty($chuyen_muc->link)){
 			return Redirect::to($chuyen_muc->link);
@@ -35,6 +36,19 @@ class HomeController extends BaseController {
 		}elseif($chuyen_muc->category_type == "menu"){
 			return $this->displayBlogCategoryPage($chuyen_muc);
 		}
+	}
+
+	public function displaySearchPage()
+	{
+		$search = Input::get('search');
+		$query = Product::where('state','=',true);
+		if (!empty($search)) {
+		    $query->where('name', 'LIKE', "%$search%");
+		    $query->orWhere('description', 'LIKE', "%$search%");
+		}
+		$query = $query->paginate(15);
+		$data['san_pham'] = $query;
+		return View::make('frontend.product.search',$data);
 	}
 
 	public function displayProductCategoryPage($chuyen_muc){
@@ -50,14 +64,14 @@ class HomeController extends BaseController {
 			$san_pham = $chuyen_muc->products()->paginate(15);
 		}
 		
-
 		$data['chuyen_muc'] = $chuyen_muc;
 		$data['san_pham'] = $san_pham;
 		return View::make('frontend.product.category',$data);
 	}
 
 	public function displayDetailProductPage($id){
-		$san_pham = Product::find($id);
+		//$san_pham = Product::find($id);
+		$san_pham = Product::findBySlug($id);
 		if(empty($san_pham)){ return View::make('frontend.errors.404'); }
 		$san_pham_lien_quan = Product::where('state','=',true)->where('id','!=',$id)->orderByRaw("RAND()")->take(3)->get();
 		$data['san_pham'] = $san_pham;
@@ -83,7 +97,7 @@ class HomeController extends BaseController {
 		if(count($bai_viet) == 1){
 			$id = '';
 			foreach ($bai_viet as $row) {
-				$id = $row->id;
+				$id = $row->alias;
 				break;
 			}
 			return $this->displayDetailBlogPage($id);
@@ -95,7 +109,8 @@ class HomeController extends BaseController {
 	}
 
 	public function displayDetailBlogPage($id){
-		$bai_viet = Blog::find($id);
+		//$bai_viet = Blog::find($id);
+		$bai_viet = Blog::findBySlug($id);
 		if(empty($bai_viet)){ return View::make('frontend.errors.404'); }
 		$data['bai_viet'] = $bai_viet;
 		return View::make('frontend.blog.detail',$data);

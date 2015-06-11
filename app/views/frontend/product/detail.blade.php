@@ -10,7 +10,7 @@
                 </li>
                 <li>
                     @foreach($san_pham->categories as $category)
-                    <a href="{{URL::to('danh-muc/'.$category->id)}}">{{$category->name}}</a>
+                    <a href="{{URL::to('danh-muc/'.$category->alias)}}">{{$category->name}}</a>
                     @endforeach
                     
                 </li>
@@ -116,7 +116,7 @@
                     @foreach($san_pham_lien_quan as $sp1)
                     <div class="col-md-4 col-sm-6 ">
                         <div class="product-item">
-                            <a href="{{URL::to('san-pham/'.$sp1->id)}}">
+                            <a href="{{URL::to('san-pham/'.$sp1->alias)}}">
                                 {{HTML::image(!empty($sp1->image) ? productImageFolder().$sp1->image : "/images/no_image.jpg",$sp1->name)}}
                                 <h3>{{$sp1->name}} </h3>
                                 <p class="price">

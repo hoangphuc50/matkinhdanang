@@ -1,6 +1,13 @@
 <?php
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
+class Category extends Eloquent implements SluggableInterface{
+    use SluggableTrait;
 
-class Category extends Eloquent {
+    protected $sluggable = array(
+        'build_from' => 'name',
+        'save_to'    => 'alias',
+    );
 	protected $table = 'categories';
 
 	public function blogs() {
@@ -22,11 +29,15 @@ class Category extends Eloquent {
 
     }  
 
-    public static function tree($type="product") {
-    	if($type == "all"){
-    		return static::with(implode('.', array_fill(0, 100, 'children')))->where('parent_id', '=', NULL)->where('state', '=', true)->get();
+    public static function tree($type="product",$state='') {
+    	if($type == "all" and $state == ''){
+    		return static::with(implode('.', array_fill(0, 100, 'children')))->where('parent_id', '=', NULL)->get();
     	}
-        return static::with(implode('.', array_fill(0, 100, 'children')))->where('category_type','=',$type)->where('parent_id', '=', NULL)->where('state', '=', true)->get();
 
+        if($state == ''){
+            return static::with(implode('.', array_fill(0, 100, 'children')))->where('category_type','=',$type)->where('parent_id', '=', NULL)->get();
+        }else{
+            return static::with(implode('.', array_fill(0, 100, 'children')))->where('category_type','=',$type)->where('parent_id', '=', NULL)->where('state','=',true)->get();
+        }
     }
 }

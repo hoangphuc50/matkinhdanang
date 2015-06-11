@@ -14,6 +14,7 @@ Route::get('/', 'HomeController@displayIndexPage');
 Route::get('san-pham/{id}', 'HomeController@displayDetailProductPage');
 Route::get('danh-muc/{id}', 'HomeController@displayCategoryPage');
 Route::get('bai-viet/{id}', 'HomeController@displayDetailBlogPage');
+Route::get('tim-kiem', 'HomeController@displaySearchPage');
 
 Route::get('cart/add', 'CartController@displayIndexPage');
 Route::post('cart/add', 'CartController@addCart');

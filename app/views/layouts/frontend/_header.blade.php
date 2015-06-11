@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="logo">
-                        <a href="#">
+                        <a href="/">
                             {{HTML::image('template/minhrayban/images/logo.png','Ptheme Solutions')}}    
                         </a>
                     </div>
@@ -13,8 +13,8 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-6 top-search-panel">
                             <div class="top-search">
-                                <form>
-                                    <input type="text" class="text-input" name="" placeholder="Nhập từ khóa ...">
+                                <form action="{{URL::to('tim-kiem')}}" method="GET">
+                                    <input type="text" class="text-input" name="search" value="{{Input::get('search')}}" placeholder="Nhập từ khóa ...">
                                     <button type="submit" value="" class="search-btn">
                                         <i class="fa fa-search"></i>
                                     </button>

@@ -25,7 +25,7 @@
   @foreach($cart as $row)
     <tr>
       <td class="cart-name">
-        <a href="{{URL::to('san-pham/'.$row->id)}}" target="_blank">
+        <a href="{{URL::to('san-pham/'.$row->options->alias)}}" target="_blank">
         <div class="cart-img">
             {{HTML::image(!is_null($row->options->image) ? productImageFolder().$row->options->image : "/images/no_image.jpg",'',array('width'=>"100",'height'=>"100"))}}
             

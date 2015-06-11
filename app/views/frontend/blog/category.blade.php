@@ -10,7 +10,7 @@
                 </li>
                 @if(!empty($chuyen_muc->parent->name))
                     <li>
-                       <a href="#">{{$chuyen_muc->parent->name}}</a> 
+                       <a href="{{URL::to('danh-muc/'.$chuyen_muc->parent->alias)}}">{{$chuyen_muc->parent->name}}</a> 
                     </li>
                 @endif
                 <li>
@@ -24,12 +24,15 @@
         <div class=" san-pham-noi-bat">
             @foreach($bai_viet as $sp1)
             <div class="blog-item">
-                <a href="{{URL::to('bai-viet/'.$sp1->id)}}">
+                <a href="{{URL::to('bai-viet/'.$sp1->alias)}}">
                     <h3>{{$sp1->title}} </h3>      
                 </a>
             </div>
             @endforeach
             
+        </div>
+        <div class="product-paginate">
+            <?php echo $bai_viet->appends(Input::only('search'))->links(); ?>
         </div>
     </div>
 </div>

@@ -1,6 +1,14 @@
 <?php
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
+class Blog extends Eloquent implements SluggableInterface{
+	use SluggableTrait;
 
-class Blog extends Eloquent {
+    protected $sluggable = array(
+        'build_from' => 'title',
+        'save_to'    => 'alias',
+    );
+
 	protected $table = 'blogs';
 	/*
 	* Define relationship

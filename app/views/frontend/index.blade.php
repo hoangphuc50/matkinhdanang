@@ -9,7 +9,7 @@
             @foreach($san_pham_khuyen_mai as $sp1)
             <div class="col-md-4 col-sm-6 ">
                 <div class="product-item">
-                    <a href="{{URL::to('san-pham/'.$sp1->id)}}">
+                    <a href="{{URL::to('san-pham/'.$sp1->alias)}}">
                         {{HTML::image(!empty($sp1->image) ? productImageFolder().$sp1->image : "/images/no_image.jpg",$sp1->name)}}
                         <h3>{{$sp1->name}} </h3>
                         <p class="price">
@@ -35,7 +35,7 @@
             @foreach($san_pham_moi as $sp1)
             <div class="col-md-4 col-sm-6 ">
                 <div class="product-item">
-                    <a href="{{URL::to('san-pham/'.$sp1->id)}}">
+                    <a href="{{URL::to('san-pham/'.$sp1->alias)}}">
                         {{HTML::image(!empty($sp1->image) ? productImageFolder().$sp1->image : "/images/no_image.jpg",$sp1->name)}}
                         <h3>{{$sp1->name}} </h3>
                         <p class="price">

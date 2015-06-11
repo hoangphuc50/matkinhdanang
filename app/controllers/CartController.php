@@ -28,7 +28,8 @@ class CartController extends BaseController {
 					$product->price,
 					array(
 						'product_id' => $product->product_id,
-						'image' => $product->image
+						'image' => $product->image,
+						'alias' => $product->alias,
 						)
 				);
 		}else{
