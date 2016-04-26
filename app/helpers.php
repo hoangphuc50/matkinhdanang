@@ -1,6 +1,9 @@
 <?php
 function productImageFolder(){
     return 'uploads/product/';
+} 
+function productThumbImageFolder(){
+    return 'uploads/product/thumb/';
 }  
 function categoryImageFolder(){
     return 'uploads/category/';
@@ -13,6 +16,9 @@ function blockImageFolder(){
 }
 function kinhImageFolder(){
     return 'uploads/menu_kinh/';
+}
+function sliderImageFolder(){
+    return 'uploads/slider/';
 }
 function checkAdmin(){
     if(Auth::user()->user_type=="admin"){

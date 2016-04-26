@@ -14,11 +14,13 @@
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mắt Kính Minh Rayban – Mắt Kính Thời Trang Nam Nữ</title>
-    <meta name="description" content="Mắt Kính Minh Rayban – Mắt Kính Thời Trang Nam Nữ" />
-    <meta name="keywords" content="Mắt Kính Minh Rayban – Mắt Kính Thời Trang Nam Nữ" />
-    <meta name="author" content="Mắt Kính Minh Rayban – Mắt Kính Thời Trang Nam Nữ" />
-    <link rel="shortcut icon" href="../favicon.ico">
+    <title>@if(isset($web_title)){{$web_title}}@else Mắt kính Đà Nẵng @endif</title>
+    <meta name="description" content="@if(isset($web_description)){{$web_description}}@else Mắt kính Đà Nẵng  @endif" />
+    <meta name="keywords" content="Mắt kính Đà Nẵng " />
+    @include('layouts.frontend._og_share')
+    <link rel="shortcut icon" type="image/x-icon" href="{{URL::to('template/minhrayban/images/favicon.ico')}}">
+    <link rel="icon" href="{{URL::to('template/minhrayban/images/favicon.ico')}}" type="image/x-icon">
+    
     {{HTML::style('template/minhrayban/css/bootstrap.min.css')}}
     {{HTML::style('template/minhrayban/css/font-awesome.min.css')}}
     {{HTML::style('template/minhrayban/css/animate.css')}}
@@ -36,16 +38,8 @@
 <body>
     @include('layouts.frontend._header')
     @include('layouts.frontend._top_menu')
-    @include('layouts.frontend._ticker_news')
-    @include('layouts.frontend._slider')
-    <section class="main">
-        <div class="container">
-            <div class="row">
-                @include('layouts.frontend._sidebar')
-                @yield('content') 
-            </div>
-        </div>
-    </section>
+    
+    @yield('content') 
     @include('layouts.frontend._footer')
 </body>
 <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->

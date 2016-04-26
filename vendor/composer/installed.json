@@ -1855,5 +1855,57 @@
             "laravel",
             "shoppingcart"
         ]
+    },
+    {
+        "name": "cviebrock/eloquent-sluggable",
+        "version": "2.0.5",
+        "version_normalized": "2.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/cviebrock/eloquent-sluggable.git",
+            "reference": "fcc70e6f27b0d0ff116c7163ef428dd61c387b05"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/cviebrock/eloquent-sluggable/zipball/fcc70e6f27b0d0ff116c7163ef428dd61c387b05",
+            "reference": "fcc70e6f27b0d0ff116c7163ef428dd61c387b05",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/config": "4.*",
+            "illuminate/database": "4.*",
+            "illuminate/support": "4.*",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "laravelbook/ardent": "dev-master",
+            "orchestra/testbench": "2.1.*",
+            "phpunit/phpunit": "4.0.*"
+        },
+        "time": "2014-11-13 20:05:40",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Cviebrock\\EloquentSluggable": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Colin Viebrock",
+                "email": "colin@viebrock.ca"
+            }
+        ],
+        "description": "Easy creation of slugs for your Eloquent models in Laravel 4.",
+        "homepage": "https://github.com/cviebrock/eloquent-sluggable",
+        "keywords": [
+            "eloquent",
+            "laravel",
+            "slug"
+        ]
     }
 ]

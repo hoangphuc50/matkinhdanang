@@ -3,10 +3,16 @@
         padding-left: 10px;
     }
     .product-item img{
-        height: 230px;
+        height: 200px;
     }
     .product-item{
-        height: 375px;
+        height: 300px;
+    }
+    .san-pham-moi .product-item img{
+        height: 250px;
+    }
+    .san-pham-moi .product-item{
+        height: 350px;
     }
 }
 
@@ -49,19 +55,6 @@
         padding: 5px 0;
     }
     .cua-hang h2 {
-        padding-top: 20px;
-    }
-    .logo img {
-        width: 100%;
-    }
-    .cart-panel {
-        padding-top: 20px;
-    }
-    section.copyright .info {
-        padding: 20px;
-    }
-       section.copyright .text-right {
-        text-align: center;
     }
 }
 

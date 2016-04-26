@@ -1,6 +1,12 @@
+<?php 
+$web_title = "Đặt hàng thành công.";
+?>
 @extends('layouts.frontend.layout')
 
 @section('content') 
+<section class="main">
+    <div class="container">
+        <div class="row">
 <div class="col-md-9 col-sm-8">
     <div class="main-wrapper">
        <div class="breakcrum">
@@ -44,7 +50,7 @@
               @foreach($cart as $row)
                 <tr>
                   <td class="cart-name">
-                    <a href="{{URL::to('san-pham/'.$row->id)}}" target="_blank">
+                    <a href="{{URL::to('san-pham/'.$row->alias)}}" target="_blank">
                     <div class="cart-img">
                         {{HTML::image(!is_null($row->options->image) ? productImageFolder().$row->options->image : "/images/no_image.jpg",'',array('width'=>"100",'height'=>"100"))}}
                         
@@ -111,10 +117,10 @@
                 <h2 class="order-title">Phương thức thanh toán & vận chuyển</h2>
                 <br>
                 <p>
-                    <b>Vận chuyển toàn quốc: </b>Các bạn thuộc khu vực nội thành Tp. Hồ Chí Minh được nhân viên của MinhRayBan giao hàng tận nơi. Các bạn thuộc các khu vực khác chúng tôi sẽ chuyển hàng theo hình thức phát hàng thu tiền (COD) của bưu điện.
+                    <b>Vận chuyển toàn quốc: </b>Các bạn thuộc khu vực nội thành Tp. Đà Nẵng được nhân viên của MatKinhDaNang.Com giao hàng tận nơi. Các bạn thuộc các khu vực khác chúng tôi sẽ chuyển hàng theo hình thức phát hàng thu tiền (COD) của bưu điện.
                 </p>
                 <p>
-                    <b>Thanh toán trực tiếp:</b> Thanh toán trực tiếp cho nhân viên của Mắt Kính MinhRayBan hoặc nhân viên bưu điện khi bạn nhận hàng.
+                    <b>Thanh toán trực tiếp:</b> Thanh toán trực tiếp cho nhân viên của Mắt Kính Đà Nẵng hoặc nhân viên bưu điện khi bạn nhận hàng.
                 </p>
                 <br>
             <div class="form-submit">
@@ -125,4 +131,7 @@
 
     </div>
 </div>
+</div>
+</div>
+</section>
 @stop

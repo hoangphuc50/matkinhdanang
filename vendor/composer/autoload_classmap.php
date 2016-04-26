@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AccountController' => $baseDir . '/app/controllers/AccountController.php',
+    'AddSlidersTable' => $baseDir . '/app/database/migrations/2015_08_15_014855_add_sliders_table.php',
     'AdminController' => $baseDir . '/app/controllers/AdminController.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'BlockHtml' => $baseDir . '/app/models/BlockHtml.php',
@@ -69,6 +70,10 @@ return array(
     'Crypt_Rijndael' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Rijndael.php',
     'Crypt_TripleDES' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/TripleDES.php',
     'Crypt_Twofish' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Twofish.php',
+    'Cviebrock\\EloquentSluggable\\SluggableInterface' => $vendorDir . '/cviebrock/eloquent-sluggable/src/Cviebrock/EloquentSluggable/SluggableInterface.php',
+    'Cviebrock\\EloquentSluggable\\SluggableServiceProvider' => $vendorDir . '/cviebrock/eloquent-sluggable/src/Cviebrock/EloquentSluggable/SluggableServiceProvider.php',
+    'Cviebrock\\EloquentSluggable\\SluggableTableCommand' => $vendorDir . '/cviebrock/eloquent-sluggable/src/Cviebrock/EloquentSluggable/SluggableTableCommand.php',
+    'Cviebrock\\EloquentSluggable\\SluggableTrait' => $vendorDir . '/cviebrock/eloquent-sluggable/src/Cviebrock/EloquentSluggable/SluggableTrait.php',
     'DatabaseSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
     'Faker\\Calculator\\Luhn' => $vendorDir . '/fzaninotto/faker/src/Faker/Calculator/Luhn.php',
     'Faker\\DefaultGenerator' => $vendorDir . '/fzaninotto/faker/src/Faker/DefaultGenerator.php',
@@ -2056,6 +2061,7 @@ return array(
     'TestCase' => $baseDir . '/app/tests/TestCase.php',
     'UpdateOrder' => $baseDir . '/app/database/migrations/2015_06_08_031703_UpdateOrder.php',
     'UpdateTableProduct' => $baseDir . '/app/database/migrations/2015_05_29_133956_update_table_product.php',
+    'UpdateUrlSeeder' => $baseDir . '/app/database/seeds/UpdateUrlSeeder.php',
     'User' => $baseDir . '/app/models/User.php',
     'UserTableSeeder' => $baseDir . '/app/database/seeds/UserTableSeeder.php',
     'Whoops\\Exception\\ErrorException' => $vendorDir . '/filp/whoops/src/Whoops/Exception/ErrorException.php',

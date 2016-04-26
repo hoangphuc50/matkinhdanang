@@ -81,3 +81,6 @@ select.category-select{
 .table-responsive{
 	overflow-x:visible;
 }
+.slider-table img{
+	width: 200px;
+}

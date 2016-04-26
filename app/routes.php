@@ -11,9 +11,9 @@
 |
 */
 Route::get('/', 'HomeController@displayIndexPage');
-Route::get('san-pham/{id}', 'HomeController@displayDetailProductPage');
-Route::get('danh-muc/{id}', 'HomeController@displayCategoryPage');
+Route::get('mat-kinh/{id}', 'HomeController@displayDetailProductPage');
 Route::get('bai-viet/{id}', 'HomeController@displayDetailBlogPage');
+Route::get('tim-kiem', 'HomeController@displaySearchPage');
 
 Route::get('cart/add', 'CartController@displayIndexPage');
 Route::post('cart/add', 'CartController@addCart');
@@ -30,8 +30,11 @@ Route::controller('admin/producers', 'ManageProducerController');
 Route::controller('admin/orders', 'ManageOrderController');
 Route::controller('admin/block_htmls', 'ManageBlockHtmlController');
 Route::controller('admin/menu_kinhs', 'ManageMenuKinhController');
+Route::controller('admin/sliders', 'ManageSliderController');
 
 Route::controller('admin', 'AdminController');
+
+Route::get('{id}', 'HomeController@displayCategoryPage');
 
 //ADMIN ACCOUNT
 Route::get('admin/account', 'HomeController@displayIndexPage');

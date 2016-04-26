@@ -40,5 +40,5 @@
 </table>
 <p><b>Tổng chi phí thanh toán: </b><span style="color:red;font-size:18px">{{displayPrice($cart_total)}} đ</span></p>
 <br>
-<h3 style="text-transform: uppercase">Mắt kính MinhRayBan sẽ kiểm tra đơn hàng và liên lạc lại trong thời gian sớm nhất.<br>
-Cảm ơn quí khách hàng đã tin tưởng và ủng hộ MinhRayBan.</h3>
+<h3 style="text-transform: uppercase">Mắt kính Đà Nẵng sẽ kiểm tra đơn hàng và liên lạc lại trong thời gian sớm nhất.<br>
+Cảm ơn quí khách hàng đã tin tưởng và ủng hộ MatKinhDaNang.Com.</h3>

@@ -49,7 +49,7 @@ class ManageBlogController extends \BaseController {
 	}
 
 	public function getAdd(){
-		$categories = Category::tree("menu");
+		$categories = Category::tree(['blog','menu']);
 		return View::make('backend.blog.create_edit',compact('categories'));
 	}
 
@@ -96,8 +96,7 @@ class ManageBlogController extends \BaseController {
 
 	public function getEdit($id){
 		$blog = Blog::find($id);
-		$categories = Category::where('state','=',1)->orderBy('id','DESC')->lists('name','id');
-		$selected_categories = BlogCategory::where('blog_id','=',$id)->lists('category_id');
+		$categories = Category::tree("menu");
 		if(empty($blog)){return Redirect::to('admin/blogs')->with('error_message', 'Dữ liệu không tồn tại');}
 		return View::make('backend.blog.create_edit',compact('blog','categories','selected_categories'));
 	}
@@ -136,17 +135,11 @@ class ManageBlogController extends \BaseController {
 			$blog->save();
 
 			//save blog category
-			$category_ids = array_filter(Input::get('category_id'));
-			if(count($category_ids)>0){
-				$old_categories = BlogCategory::where('blog_id','=',$blog->id);
-				$old_categories->delete();
-
-				foreach($category_ids as $category_id){
-					$blog_category = new BlogCategory;
-					$blog_category->blog_id = $blog->id;
-					$blog_category->category_id = $category_id;
-					$blog_category->save();
-				}
+			$category_id = Input::get('category_id');
+			if(!empty($category_id)){
+				$blog_category = BlogCategory::where('blog_id','=',$blog->id)->first();
+				$blog_category->category_id = $category_id;
+				$blog_category->save();
 			}
 			
 			return Redirect::to('admin/blogs')->with('success_message', 'Thông tin bài viết đã được thay đổi');

@@ -10,7 +10,7 @@ class ManageCategoryController extends \BaseController {
 		//Declare query and params
 		$search = Input::get('search');
 		$option = Input::get('option');
-		$per_page = Input::get('per_page') > 15 ? Input::get('per_page') : 15;
+		$per_page = Input::get('per_page') > 25 ? Input::get('per_page') : 25;
 
 		$query_string = "";
 		$query_params = array();
@@ -149,12 +149,19 @@ class ManageCategoryController extends \BaseController {
 
 	public function getDelete($id){
 		$category = Category::find($id);
+
+		//Delete in category product
+		ProductCategory::where('category_id','=',$id)->delete();
+		//Delete in category blog
+		BlogCategory::where('category_id','=',$id)->delete();
+
 		if(empty($category)){return Redirect::to('admin/categories')->with('error_message', 'Dữ liệu không tồn tại');}
 		if(!empty($category->image))
 		{
 			File::delete(categoryImageFolder().$category->image);
 		}
 		$category->delete();
+
 		return Redirect::to('admin/categories')->with('success_message', 'Dữ liệu đã được xóa.');
 	}
 

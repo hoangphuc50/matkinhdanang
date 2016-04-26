@@ -1,5 +1,5 @@
 body {
-    font-family: "Open Sans Regular", sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 14px;
     color: #555;
     background: #fff;
@@ -29,7 +29,9 @@ li {
     padding: 0;
     margin: 0;
 }
-
+a{
+    color: red;
+}
 a,
 a:hover {
     text-decoration: none;
@@ -58,15 +60,15 @@ p {
 .add-cart,.dat-hang-ngay,.price,
 .blog-item h3,
 .menu-kinh .item{
-    -webkit-transition: all 0.5s ease;
+/*    -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    transition: all 0.5s ease;*/
 }
 
 section.top-menu {
-    padding: 15px 0;
-    font-size: 14px;
+    padding: 5px 0;
+    font-size: 13px;
     border-bottom: 1px solid #ddd;
 }
 
@@ -85,7 +87,7 @@ section.header {
 }
 
 .hotline span {
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: Arial, sans-serif;
     color: #d7fff8;
 }
 
@@ -107,7 +109,7 @@ section.header {
 .cart h2,
 .tong-cong h2,
 .tong-cong h3 {
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 16px;
     color: #333;
     text-transform: uppercase;
@@ -147,6 +149,7 @@ section.header {
 
 .top-menu .fa {
     font-size: 18px;
+    color: red;
 }
 
 .top-menu .text-left a {
@@ -155,6 +158,7 @@ section.header {
 
 .top-menu .text-center>b {
     text-transform: uppercase;
+    color: red;
 }
 
 .top-menu .text-center {
@@ -162,11 +166,15 @@ section.header {
 }
 
 .top-menu .fa-facebook {
-    padding: 4px 8px;
-    background: #333;
+    padding: 4px 7px;
+    background: red;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 3px;
     font-size: 16px;
+}
+
+.top-menu .fa-phone {
+    padding: 3px 5px;
 }
 
 .header-right {
@@ -174,7 +182,7 @@ section.header {
 }
 
 .main-menu {
-    background: #529fd3;
+    background: red;
 }
 
 .navigation {}
@@ -187,16 +195,17 @@ section.header {
 
 .navigation>ul>li>a {
     display: block;
-    padding: 16px 25px;
+    padding: 12px 20px;
     text-transform: uppercase;
     color: #fff;
-    font-size: 16px;
-    font-family: "Open Sans Semibold", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
 }
 
 .navigation>ul>li>a:hover,
 .navigation>ul>li>a.active {
-    background: #1f65ad;
+    background: #333;
 }
 
 .navigation>ul>li>ul>li>ul {
@@ -206,7 +215,7 @@ section.header {
 .navigation>ul>li>ul {
     position: absolute;
     display: none;
-    top: 53px;
+    top: 43px;
     width: 243px;
 }
 
@@ -215,16 +224,16 @@ section.header {
 }
 
 .navigation>ul>li>ul a:hover {
-    background: #1f65ad;
+    background: red;
 }
 
 .navigation>ul>li>ul a {
     padding: 12px 20px;
     display: block;
-    text-transform: uppercase;
+    text-transform: none;
     padding-left: 15px;
     color: #fff;
-    background: #529fd3;
+    background: #333;
     /*border-bottom: 1px solid #fff;*/
 }
 
@@ -236,7 +245,7 @@ section.header {
 
 .thong-bao-panel .text {
     font-size: 16px;
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: Arial, sans-serif;
     color: red;
     padding-top: 13px;
     height: 40px;
@@ -252,18 +261,22 @@ section.header {
     margin-bottom: 0px;
     height: 75px;
     cursor: pointer;
+    border: 1px solid red;
+    margin-bottom: 10px;
 }
 
 .menu-kinh .item:hover h3{
-   color: red;
+   color: #333;
+}
+.menu-kinh .item:hover{
+    border-color: #333;
 }
 
 .menu-kinh .item h3 {
-    color: #333;
-    font-size: 16px;
+    color: red;
+    font-size: 14px;
     margin-top: 5px;
-    font-family: "Open Sans Bold", sans-serif;
-    text-transform: uppercase;
+    font-family: Arial, sans-serif;
     margin-bottom: 0px;
     white-space: nowrap;
 }
@@ -281,11 +294,11 @@ section.header {
 .thong-ke h2 {
     color: #fff;
     text-transform: uppercase;
-    font-family: "Open Sans Semibold", sans-serif;
-    font-size: 18px;
-    padding: 15px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px 0;
     text-align: center;
-    background: #1f65ad;
+    background: #333;
 }
 
 .thong-ke-content {
@@ -338,7 +351,7 @@ section.header {
     padding: 15px 0px;
     color: #555;
     font-size: 14px;
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 .category-product>li:hover > ul {
@@ -366,7 +379,7 @@ section.header {
 .category-product>li>ul>li a:hover {}
 
 .product-item img:hover {
-    opacity: 0.7;
+    /*opacity: 0.7;*/
 }
 
 .product-item img,
@@ -382,7 +395,7 @@ h2.title {
     font-size: 18px;
     color: #529fd3;
     border-bottom: 4px solid #529fd3;
-    font-family: "Open Sans Bold", sans-serif;
+    font-family: Arial, sans-serif;
     display: inline-block;
     text-transform: uppercase;
     padding: 10px 20px;
@@ -391,33 +404,38 @@ h2.title {
     text-align: center;
     position: relative;
     z-index: 2;
+    font-weight: bold;
 }
 
 .title-2 {
-    font-size: 22px;
-    font-family: "Open Sans Bold", sans-serif;
-    color: #529fd3;
+    font-size: 24px;
+    font-family: Arial, sans-serif;
+    color: #000;
     text-transform: uppercase;
     padding: 15px 0;
+    font-weight: bold;
 }
 
 .title-2>span {
-    color: #555;
-    font-family: "Open Sans Semibold", sans-serif;
+    color: red;
+    font-family: Arial, sans-serif;
 }
 
 .product-item {
     text-align: center;
-    padding-bottom: 25px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom: 15px;
 }
 
 .product-item h3,
 .tin-tuc-moi h2 {
     color: #333;
     font-size: 16px;
-    padding: 15px 0 5px 0;
+    padding: 5px 0 5px 0;
     text-align: center;
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 .product-item:hover h3,
@@ -425,25 +443,30 @@ h2.title {
     color: red;
 }
 
-.product-item:hover p.price,
-p.price:hover {
-    background: #94D4FF;
+.product-item:hover {
+    background: red;
+    border-color: red;
+}
+.product-item:hover p.price,.product-item:hover h3{
+    color: #fff;
+}
+.product-item:hover p.price>span{
+    color: #333;
 }
 
 p.price {
-    font-size: 20px;
-    color: #1f65ad;
+    font-size: 18px;
+    color: red;
     margin: 0;
-    padding: 10px 15px;
+    padding: 0px 5px;
     display: inline-block;
     text-align: center;
-    font-family: "Open Sans Semibold", sans-serif;
-    background: #eee;
+    font-family: Arial, sans-serif;
 }
 
 p.price>span {
-    font-size: 16px;
-    color: red;
+    font-size: 12px;
+    color: #999;
     text-decoration: line-through;
     padding-right: 10px;
 }
@@ -467,7 +490,7 @@ section.footer {
 .cua-hang h2 {
     font-size: 18px;
     text-transform: uppercase;
-    font-family: "Open Sans Bold", sans-serif;
+    font-family: Arial, sans-serif;
     margin-bottom: 20px;
 }
 
@@ -489,7 +512,7 @@ section.footer {
 .footer-info h2 {
     text-transform: none;
     font-size: 16px;
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: Arial, sans-serif;
     color: #1f65ad;
     padding-top: 15px;
 }
@@ -562,12 +585,15 @@ section.copyright .info {
 
 .slider {
     padding: 25px 0;
+    padding-bottom: 0;
 }
 
 .slider .container {
     position: relative;
 }
-
+.bx-wrapper .bx-viewport img{
+    width: 100%;
+}
 .bx-wrapper .bx-viewport {
     border: 0;
     box-shadow: none;
@@ -686,7 +712,8 @@ section.copyright .info {
 }
 
 .breakcrum ul li:last-child a {
-    color: #529fd3;
+    color: #000;
+    font-weight: bold;
     border: none;
 }
 
@@ -1029,14 +1056,14 @@ section.san-pham {
 
 .hot-line>p {
     text-align: center;
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 18px;
     color: red;
 }
 
 .hot-line>span {
     text-align: center;
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: Arial, sans-serif;
     font-size: 22px;
     display: block;
     color: #333;
@@ -1055,7 +1082,7 @@ section.san-pham {
     color: red;
     font-size: 26px;
     text-transform: uppercase;
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: Arial, sans-serif;
     margin-top: 0;
     padding-bottom: 15px;
     border-bottom: 1px solid #ddd;
@@ -1068,20 +1095,20 @@ section.san-pham {
 }
 
 .old-price {
-    font-size: 18px;
+    font-size: 14px;
     text-decoration: line-through;
     display: inline-block;
     padding-right: 15px;
-    font-family: "Open Sans Semibold", sans-serif;
-    color: red;
+    font-family: Arial, sans-serif;
+    color: #999;
 }
 
 .price {
     font-size: 26px;
     display: inline-block;
     padding-right: 15px;
-    font-family: "Open Sans Bold", sans-serif;
-    color: #529fd3;
+    font-family: Arial, sans-serif;
+    color: red;
     padding-top: 5px;
 }
 
@@ -1089,7 +1116,6 @@ section.san-pham {
     padding: 10px;
     border: 1px solid #ddd;
     text-align: center;
-    margin-top: 30px;
 }
 
 .buy-panel {
@@ -1137,7 +1163,7 @@ section.san-pham {
     text-transform: uppercase;
     text-decoration: underline;
     color: #529fd3;
-    font-family: "Open Sans Bold", sans-serif;
+    font-family: Arial, sans-serif;
     padding: 10px 0;
 }
 
@@ -1174,7 +1200,7 @@ section.san-pham {
     text-align: center;
     vertical-align: middle;
     padding-top: 3px;
-    font-family: "Open Sans Bold", sans-serif;
+    font-family: Arial, sans-serif;
     background: #fff;
     color: #FF0000;
     font-size: 18px;
@@ -1196,7 +1222,7 @@ section.san-pham {
 }
 .content-title{
     font-size: 18px;
-    font-family: "Open Sans Bold", sans-serif;
+    font-family: Arial, sans-serif;
     background: #eee;
     color: #555;
     padding: 10px 0;
@@ -1214,7 +1240,7 @@ section.san-pham {
 }
 .cam-ket h2{
     font-size: 18px;
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: Arial, sans-serif;
     text-align: center;
     text-transform: uppercase;
     padding: 10px 0;
@@ -1224,7 +1250,7 @@ section.san-pham {
     padding: 15px 30px;
     background: #529fd3;
     color: #fff !important;
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: Arial, sans-serif;
     text-align: center;
     text-transform: uppercase;
     font-size: 22px;
@@ -1313,7 +1339,7 @@ section.san-pham {
 .cart-total-price{
     color: #333;
     font-size: 16px;
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: Arial, sans-serif;
     padding: 15px 0;
     text-align: right;
     padding-right: 30px;
@@ -1327,7 +1353,7 @@ section.san-pham {
     font-size: 16px;
 }
 .cart-name{
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: Arial, sans-serif;
 }
 .cart-update-qty .deletebtn{
     background: url('../images/delete_quantity.png') top left no-repeat;
@@ -1366,7 +1392,7 @@ section.san-pham {
 }
 .form-row label{
     display: block;
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: Arial, sans-serif;
     font-weight: normal;
 }
 .form-row input,.form-row textarea{
@@ -1389,7 +1415,7 @@ section.san-pham {
 .order-title{
     color: #333;
     font-size: 16px;
-    font-family: "Open Sans Semibold", sans-serif;
+    font-family: Arial, sans-serif;
     padding: 15px 0;
     background: #eee;
     text-align: left;
@@ -1414,4 +1440,461 @@ section.san-pham {
 .border-line{
     border-bottom: 1px solid #ddd;
     margin-bottom: 15px;
+}
+
+
+
+
+
+
+
+
+.dn-logo{
+    max-width: 340px;
+    
+    background: #fff;
+    height: 15px;
+}
+.dn-logo img{
+    width: 100%;
+    background: #fff;
+    padding: 0 15px;
+    position: relative;
+    top: -25px;
+}
+.dn-logo a{
+    padding: 0;
+    margin: 0;
+}
+.shop-policy{
+    border: 1px solid red;
+    padding: 10px 15px;
+    /*height: 350px;*/
+}
+.shop-policy-h2{
+    color: #fff;
+    background: #333;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 12px 10px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.shop-policy h3{
+    font-size: 16px;
+    color: red;
+    font-weight: bold;
+}
+.shop-policy p{
+    margin-bottom: 0;
+}
+
+.about-footer {
+  text-align: center;
+}
+.about-footer h4 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #333;
+}
+.address-footer{
+    font-size: 14px;
+}
+.address-line h4{
+    font-size: 14px;
+    line-height: 22px;
+}
+@media (min-width: 768px) {
+  .about-footer {
+    text-align: left;
+  }
+}
+.address-footer span {
+  display: inline-block;
+}
+.address-footer span.img-map {
+  vertical-align: top;
+}
+.address-footer span.address-line {
+  width: 165px;
+  margin-left: 20px;
+}
+@media (min-width: 992px) {
+  .address-footer span.address-line {
+    width: 230px;
+  }
+}
+.address-footer div {
+  display: inline-block;
+}
+.address-footer div.img-map {
+  vertical-align: top;
+}
+.address-footer div.address-line {
+  width: 165px;
+  margin-left: 20px;
+}
+@media (min-width: 992px) {
+  .address-footer div.address-line {
+    width: 280px;
+  }
+}
+.service-footer h1 {
+  margin-top: 0;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-align: center;
+  font-weight: bold;
+}
+.service-footer ul{
+    margin-bottom: 15px;
+}
+@media (min-width: 768px) {
+  .service-footer h1 {
+    text-align: left;
+  }
+}
+.service-footer h4 {
+  margin-bottom: 5px;
+  margin-top: 0;
+  font-size: 14px;
+  color: #555;
+}
+.service-footer h4:hover{
+    color: red;
+}
+.service-footer ul {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .service-footer ul {
+    text-align: left;
+  }
+}
+.content-newsletter {
+
+}
+.content-newsletter .header-newsletter {
+  background-color: #292929;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 10px;
+}
+.content-newsletter .bottom-newsletter {
+  padding: 10px;
+  text-align: center;
+}
+.content-newsletter .bottom-newsletter h1 {
+  text-transform: capitalize;
+  font-size: 25px;
+  letter-spacing: 0;
+}
+@media (max-width: 768px) {
+  .created {
+    text-align: center;
+    float: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .social-bow {
+    clear: both;
+    float: none !important;
+    text-align: center;
+  }
+}
+.social-bow .center-sosmed {
+  display: table;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+.social-bow .center-sosmed p {
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 20px;
+  padding: 9px;
+}
+.social-bow li {
+  width: 40px;
+  height: 40px;
+  margin-left: 10px;
+  display: inline-block;
+  color: #ffffff;
+  background-color: #292929;
+}
+.social-bow li:first-child {
+  margin-left: 0;
+}
+.social-bow li a {
+  height: 40px;
+  width: 40px;
+  display: block;
+  color: #ffffff;
+  border: 1px solid #292929;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.social-bow li a:hover {
+  background-color: #ffffff;
+  border: 1px solid #292929;
+  color: #292929;
+}
+.logo-footer h1 {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .logo-footer h1 {
+    text-align: left;
+  }
+}
+.footer-bottom {
+  margin-bottom: 10px;
+}
+.footer-bottom h4 {
+  margin-top: 0;
+  font-size: 14px;
+}
+/* 
+=============================================== 
+8. Header Banner Man Collection
+=============================================== 
+*/
+.banner-image {
+  position: relative;
+  width: 100%;
+}
+.banner-image .banner-text {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+}
+.banner-image .banner-text .col-sm-offset-6 {
+  height: 100%;
+}
+.banner-image .banner-text .text-table-collection {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+.banner-image .banner-text .text-table-collection .text-center-collection {
+  display: table-cell;
+  vertical-align: middle;
+}
+.banner-image .banner-text .text-table-collection .text-center-collection h1 {
+  font-size: 50px;
+  text-shadow: 4px 4px #987fbb;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.banner-image .banner-text .text-table-collection .text-center-collection h1.woman-head {
+  text-shadow: 4px 4px #e371d9;
+}
+.banner-image .banner-text .text-table-collection .text-center-collection h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.banner-image .banner-text .text-table-collection .text-center-collection h5 {
+  font-size: 24px;
+  letter-spacing: 10px;
+}
+.breadcrumb-bow {
+  background-color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 5px 0;
+}
+.nav-content-collection {
+  margin-bottom: 10px;
+}
+.nav-content-collection > ul {
+  border-bottom: solid 1px #292929;
+  padding-bottom: 6px;
+  text-align: center;
+}
+.nav-content-collection a {
+  display: inline-block;
+  margin-right: 10px;
+  text-transform: uppercase;
+  color: #aeaeae;
+}
+.nav-content-collection a:hover {
+  color: #aeaeae;
+}
+.nav-content-collection li {
+  display: inline-block;
+  margin-bottom: 3px;
+}
+.nav-content-collection .btn-default {
+  border-color: #ffffff;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+@media (max-width: 992px) {
+  .nav-content-collection .pull-right {
+    display: block;
+    float: none !important;
+    margin-top: 10px;
+  }
+}
+/* 
+=============================================== 
+6. Subscribe
+=============================================== 
+*/
+.subscribe-bow {
+  background-color: #f5f5f5;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 20px;
+  overflow: hidden;
+}
+@media (max-width: 768px) {
+  .subscribe-bow {
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .subscribe-bow .pull-left,
+  .subscribe-bow .pull-right {
+    float: none !important;
+    width: 100%;
+  }
+}
+.footer-logo{
+    max-width: 320px;
+    padding: 10px 0 20px 0;
+}
+.logo-footer{
+    text-align: center;
+}
+.hr-bow{
+    padding: 20px 0;
+    margin: 0 auto;
+    display: block;
+    max-width: 957px;
+    width: 100%;
+}
+
+*/
+.btn-bow {
+  text-transform: uppercase;
+  border: none;
+}
+.btn-bow:focus,
+.btn-bow:active,
+.btn-bow.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn-bow.btn-black-square {
+  background-color: #292929;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  padding: 10px 15px;
+  letter-spacing: 1px;
+  border: solid 1px #ffffff;
+  font-weight: bold;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.btn-bow.btn-black-square:hover {
+  background-color: #ffffff;
+  color: #292929;
+  border: solid 1px #292929;
+}
+.btn-bow.btn-green-square {
+  background-color: #90e3aa;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  padding: 10px 15px;
+  letter-spacing: 1px;
+  border: solid 1px #ffffff;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+.btn-bow.btn-green-square:hover {
+  background-color: #3fce6c;
+  color: #ffffff;
+}
+.btn-bow.btn-bow-yellow {
+  background-color: #f4cd59;
+  color: #ffffff;
+  padding: 15px 30px;
+  font-size: 15px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+@media (min-width: 992px) {
+  .btn-bow.btn-bow-yellow {
+    font-size: 20px;
+  }
+}
+.btn-bow.btn-bow-yellow:hover {
+  background-color: #f1bf29;
+  color: #ffffff;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.btn-bow-full {
+  width: 100%;
+}
+.icon-bar {
+  background-color: #292929;
+}
+.btn-default-bow {
+  border: solid 1px #292929;
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  background-color: #ffffff;
+}
+.caret-bow {
+  right: 10px;
+  top: 10px;
+  position: absolute;
+  border-top: 7px solid;
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+}
+.subscribe-bow h4{
+    color: #333;
+}
+.subscribe-bow h4 a{
+    color: red;
+}
+.detail-mk{
+    font-size: 28px;
+    line-height: 30px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: red;
 }

@@ -142,11 +142,11 @@ class ManageBlockHtmlController extends \BaseController {
 	public function getDelete($id){
 		$block_html = BlockHtml::find($id);
 		if(empty($block_html)){return Redirect::to('admin/block_htmls')->with('error_message', 'Dữ liệu không tồn tại');}
-		if(!empty($block_html_->image))
+		if(!empty($block_html->image))
 		{
-			File::delete(blockImageFolder().$block_html_->image);
+			File::delete(blockImageFolder().$block_html->image);
 		}
-		$block_html_->delete();
+		$block_html->delete();
 		return Redirect::to('admin/block_htmls')->with('success_message', 'Dữ liệu đã được xóa.');
 	}
 

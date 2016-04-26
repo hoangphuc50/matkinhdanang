@@ -122,8 +122,8 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
-		'Gloudemans\Shoppingcart\ShoppingcartServiceProvider'
-
+		'Gloudemans\Shoppingcart\ShoppingcartServiceProvider',
+		'Cviebrock\EloquentSluggable\SluggableServiceProvider',
 	),
 
 	/*

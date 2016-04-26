@@ -24,7 +24,7 @@ $(document).ready(function() {
     // BX SLIDER
     $('.bxslider').bxSlider({
         pager: false,
-        controls: true
+        controls: false
     });
     // SLIDE DOI TAC
     $('.marquee').marquee({

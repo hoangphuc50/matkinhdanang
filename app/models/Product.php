@@ -1,6 +1,13 @@
 <?php
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
+class Product extends Eloquent implements SluggableInterface{
+	use SluggableTrait;
 
-class Product extends Eloquent {
+    protected $sluggable = array(
+        'build_from' => 'name',
+        'save_to'    => 'alias',
+    );
 	protected $table = 'products';
 
 	public function producer() {
