@@ -45,6 +45,11 @@
                         {{Form::text('title',isset($blog) ? $blog->title : '', array('class' => 'form-control','placeholder' => 'Nhập tiêu đề cho bài viết'))}}
                         {{ $errors->first('title', '<span class="help-block">:message</span>') }}
                     </div>
+                    <div class="form-group {{{ $errors->has('alias') ? 'has-error' : '' }}}">
+                        <label>Alias (SEO)</label>
+                        {{Form::text('alias',isset($blog) ? $blog->alias : '', array('class' => 'form-control','placeholder' => ''))}}
+                        {{ $errors->first('alias', '<span class="help-block">:message</span>') }}
+                    </div>
                     <div class="form-group {{{ $errors->has('image') ? 'has-error' : '' }}}">
                         <label>Hình đại diện</label>
                         @if(empty($blog->image))

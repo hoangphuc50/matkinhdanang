@@ -30,6 +30,7 @@ class Category extends Eloquent implements SluggableInterface{
     }  
 
     public static function tree($type="product",$state='') {
+<<<<<<< HEAD
         if(is_array($type)){
             return static::with(implode('.', array_fill(0, 100, 'children')))->whereIn('category_type',$type)->where('parent_id', '=', NULL)->where('state','=',true)->get();
         }else{
@@ -42,6 +43,16 @@ class Category extends Eloquent implements SluggableInterface{
             }else{
                 return static::with(implode('.', array_fill(0, 100, 'children')))->where('category_type','=',$type)->where('parent_id', '=', NULL)->where('state','=',true)->get();
             }
+=======
+    	if($type == "all" and $state == ''){
+    		return static::with(implode('.', array_fill(0, 100, 'children')))->where('parent_id', '=', NULL)->get();
+    	}
+
+        if($state == ''){
+            return static::with(implode('.', array_fill(0, 100, 'children')))->where('category_type','=',$type)->where('parent_id', '=', NULL)->get();
+        }else{
+            return static::with(implode('.', array_fill(0, 100, 'children')))->where('category_type','=',$type)->where('parent_id', '=', NULL)->where('state','=',true)->get();
+>>>>>>> 2edb44b0b68c847c9af9804e9245765302d73f8d
         }
     }
 }

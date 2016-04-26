@@ -58,13 +58,21 @@
 
                         @foreach($main_menu as $menu)
                             <li>
+<<<<<<< HEAD
                                 <a href="{{URL::to($menu->alias)}}">{{$menu->name}}
+=======
+                                <a href="{{URL::to('danh-muc/'.$menu->alias)}}">{{$menu->name}}
+>>>>>>> 2edb44b0b68c847c9af9804e9245765302d73f8d
                                 </a>
                                 @if(count($menu['children'])>0)
                                 <ul>
                                     @foreach($menu['children'] as $menu_child)
                                         <li>
+<<<<<<< HEAD
                                             <a href="{{URL::to($menu_child->alias)}}" class="active">{{$menu_child->name}}
+=======
+                                            <a href="{{URL::to('danh-muc/'.$menu_child->alias)}}" class="active">{{$menu_child->name}}
+>>>>>>> 2edb44b0b68c847c9af9804e9245765302d73f8d
                                             </a>
                                         </li>  
                                     @endforeach
@@ -87,13 +95,21 @@
             </li>
             @foreach($main_menu as $menu)
                 <li>
+<<<<<<< HEAD
                     <a href="{{URL::to($menu->alias)}}">{{$menu->name}}
+=======
+                    <a href="{{URL::to('danh-muc/'.$menu->alias)}}">{{$menu->name}}
+>>>>>>> 2edb44b0b68c847c9af9804e9245765302d73f8d
                     </a>
                     @if(count($menu['children'])>0)
                     <ul>
                         @foreach($menu['children'] as $menu_child)
                             <li>
+<<<<<<< HEAD
                                 <a href="{{URL::to($menu_child->alias)}}" class="active">{{$menu_child->name}}
+=======
+                                <a href="{{URL::to('danh-muc/'.$menu_child->alias)}}" class="active">{{$menu_child->name}}
+>>>>>>> 2edb44b0b68c847c9af9804e9245765302d73f8d
                                 </a>
                             </li>  
                         @endforeach

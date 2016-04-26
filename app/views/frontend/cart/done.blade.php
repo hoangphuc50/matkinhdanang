@@ -50,7 +50,11 @@ $web_title = "Đặt hàng thành công.";
               @foreach($cart as $row)
                 <tr>
                   <td class="cart-name">
+<<<<<<< HEAD
                     <a href="{{URL::to('san-pham/'.$row->alias)}}" target="_blank">
+=======
+                    <a href="{{URL::to('san-pham/'.$row->options->alias)}}" target="_blank">
+>>>>>>> 2edb44b0b68c847c9af9804e9245765302d73f8d
                     <div class="cart-img">
                         {{HTML::image(!is_null($row->options->image) ? productImageFolder().$row->options->image : "/images/no_image.jpg",'',array('width'=>"100",'height'=>"100"))}}
                         
